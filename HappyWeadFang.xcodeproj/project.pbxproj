@@ -119,9 +119,9 @@
 		7A19A1C31C3A4E300010BAB5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7A19A1C61C3A4E300010BAB5 /* ViewController */,
 				7A19A1C41C3A4E300010BAB5 /* cell */,
 				7A19A1C51C3A4E300010BAB5 /* Model */,
-				7A19A1C61C3A4E300010BAB5 /* ViewController */,
 			);
 			path = Main;
 			sourceTree = "<group>";
