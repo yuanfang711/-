@@ -6,20 +6,13 @@
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
+#import "MainModel.h"
 #import <UIKit/UIKit.h>
 
 @interface MainTableViewCell : UITableViewCell
-//活动图片
-@property (weak, nonatomic) IBOutlet UIImageView *activityImage;
+
+@property(nonatomic, strong) MainModel *model;
 
 
-//活动名字
-@property (weak, nonatomic) IBOutlet UILabel *activitynamel;
-
-//活动价格
-@property (weak, nonatomic) IBOutlet UILabel *activityPrice;
-
-//活动距离
-@property (weak, nonatomic) IBOutlet UIButton *activityDistanceBu;
 
 @end

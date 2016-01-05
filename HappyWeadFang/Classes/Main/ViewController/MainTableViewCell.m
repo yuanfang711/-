@@ -7,12 +7,34 @@
 //
 
 #import "MainTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+@interface MainTableViewCell ()
+//活动图片
+@property (weak, nonatomic) IBOutlet UIImageView *activityIamhe;
+//活动名字
+
+@property (weak, nonatomic) IBOutlet UILabel *acticityName;
+
+//活动价格
+@property (weak, nonatomic) IBOutlet UILabel *activityPrice;
+
+//活动距离
+@property (weak, nonatomic) IBOutlet UIButton *activityDistanceBu;
+@end
 
 @implementation MainTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
     
+}
+
+- (void)setModel:(MainModel *)model{
+
+    [self.activityIamhe sd_setImageWithURL:[NSURL URLWithString:model.image_big] placeholderImage:nil];
+    self.acticityName.text = model.title;
+    self.activityPrice.text = model.price;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

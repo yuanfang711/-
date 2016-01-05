@@ -14,12 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="这是一个很好玩的答复" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-kb-9Qc">
-                        <rect key="frame" x="8" y="147" width="359" height="29"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv3-Gy-uq3">
                         <rect key="frame" x="8" y="176" width="157" height="26"/>
                         <string key="text" base64-UTF8="YES">
@@ -33,16 +27,22 @@ EO+/pTE1NzQ1MTI0NzUxA
                         <rect key="frame" x="299" y="177" width="68" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iq0-Y7-XOm">
-                        <rect key="frame" x="8" y="8" width="359" height="168"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIo-v0-SKc">
+                        <rect key="frame" x="8" y="8" width="359" height="169"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="这是一个很好玩的地方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qca-86-PNM">
+                        <rect key="frame" x="18" y="147" width="270" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="acticityName" destination="qca-86-PNM" id="jg2-Hd-ClA"/>
                 <outlet property="activityDistanceBu" destination="XNI-yN-0he" id="69x-6K-qhY"/>
-                <outlet property="activityImage" destination="iq0-Y7-XOm" id="3ZF-LS-sTT"/>
+                <outlet property="activityIamhe" destination="lIo-v0-SKc" id="dYl-yZ-BuW"/>
                 <outlet property="activityPrice" destination="fv3-Gy-uq3" id="6IO-Zs-nSt"/>
-                <outlet property="activitynamel" destination="zbb-kb-9Qc" id="NyF-KS-12M"/>
             </connections>
             <point key="canvasLocation" x="631.5" y="435.5"/>
         </tableViewCell>
