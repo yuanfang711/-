@@ -13,6 +13,8 @@
 		7A19A1D51C3A50680010BAB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A19A1D41C3A50680010BAB5 /* Main.storyboard */; };
 		7A19A1D71C3A50900010BAB5 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A19A1D61C3A50900010BAB5 /* Discover.storyboard */; };
 		7A19A1D91C3A50C30010BAB5 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A19A1D81C3A50C30010BAB5 /* Mine.storyboard */; };
+		7A19A1DD1C3A76780010BAB5 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A19A1DB1C3A76780010BAB5 /* MainTableViewCell.m */; };
+		7A19A1DE1C3A76780010BAB5 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A19A1DC1C3A76780010BAB5 /* MainTableViewCell.xib */; };
 		7A8E9B701C3A1CD500D529C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E9B6F1C3A1CD500D529C4 /* main.m */; };
 		7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E9B721C3A1CD500D529C4 /* AppDelegate.m */; };
 		7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */; };
@@ -31,6 +33,9 @@
 		7A19A1D41C3A50680010BAB5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		7A19A1D61C3A50900010BAB5 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		7A19A1D81C3A50C30010BAB5 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
+		7A19A1DA1C3A76780010BAB5 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewCell.h; path = ../ViewController/MainTableViewCell.h; sourceTree = "<group>"; };
+		7A19A1DB1C3A76780010BAB5 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewCell.m; path = ../ViewController/MainTableViewCell.m; sourceTree = "<group>"; };
+		7A19A1DC1C3A76780010BAB5 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainTableViewCell.xib; path = ../ViewController/MainTableViewCell.xib; sourceTree = "<group>"; };
 		7A8E9B6B1C3A1CD500D529C4 /* HappyWeadFang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyWeadFang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8E9B6F1C3A1CD500D529C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A8E9B711C3A1CD500D529C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				7A19A1D41C3A50680010BAB5 /* Main.storyboard */,
+				7A19A1DA1C3A76780010BAB5 /* MainTableViewCell.h */,
+				7A19A1DB1C3A76780010BAB5 /* MainTableViewCell.m */,
+				7A19A1DC1C3A76780010BAB5 /* MainTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A19A1DE1C3A76780010BAB5 /* MainTableViewCell.xib in Resources */,
 				7A19A1D51C3A50680010BAB5 /* Main.storyboard in Resources */,
 				7A19A1D71C3A50900010BAB5 /* Discover.storyboard in Resources */,
 				7A19A1D91C3A50C30010BAB5 /* Mine.storyboard in Resources */,
@@ -362,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A19A1DD1C3A76780010BAB5 /* MainTableViewCell.m in Sources */,
 				7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */,
 				7A19A1CF1C3A4E300010BAB5 /* DiscoverViewController.m in Sources */,
 				7A19A1D11C3A4E300010BAB5 /* MineViewController.m in Sources */,
