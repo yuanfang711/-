@@ -1,5 +1,5 @@
 //
-//  ActivityViewController.h
+//  UIViewController+Common.h
 //  HappyWeadFang
 //
 //  Created by scjy on 16/1/6.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivityViewController : UIViewController
-@property(nonatomic, strong) NSString *activityID;
+@interface UIViewController (Common)
+
+//添加返回按钮
+- (void)showBackButton;
+
 @end
