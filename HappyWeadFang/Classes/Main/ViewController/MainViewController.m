@@ -274,27 +274,14 @@
     CGFloat offset = rollPage * ScreenWidth;
     [self.scrollV setContentOffset:CGPointMake(offset, 0) animated:YES];
     
-    
-    
-//    NSInteger rollPage = self.pageC.currentPage;
-//    if (rollPage == 4) {
-//        rollPage = 0;
-//    }else{
-//        rollPage++;
-//    }
-//    CGFloat offset = rollPage * ScreenWidth;
-//    self.scrollV.contentOffset = CGPointMake(offset, 0);
-//    
+   
 }
 
-//- (void)removeTimer{
-//    [self.timer invalidate];
-//}
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self rollScreen];
     //停止定时器后，将定时器置为nil，再次启动时，定时器才能保证正常执行。
-//    self.timer = nil;
+    self.timer = nil;
 }
 
 

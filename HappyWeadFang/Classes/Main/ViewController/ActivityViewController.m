@@ -25,7 +25,7 @@
     
         
     //网络请求
-//    [self getModel];
+    [self getModel];
 }
 #pragma mark ----------- 网络请求
 - (void)getModel{
@@ -41,7 +41,7 @@
         NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
 //        NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
