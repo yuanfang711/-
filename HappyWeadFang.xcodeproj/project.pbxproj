@@ -21,6 +21,13 @@
 		7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E9B721C3A1CD500D529C4 /* AppDelegate.m */; };
 		7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */; };
 		7A8E9B781C3A1CD500D529C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B761C3A1CD500D529C4 /* LaunchScreen.storyboard */; };
+		7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */; };
+		7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */; };
+		7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */; };
+		7AE08FBE1C3CBF4300D97B2B /* ThemeViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FBD1C3CBF4300D97B2B /* ThemeViewViewController.m */; };
+		7AE08FC11C3CBFE200D97B2B /* ClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FC01C3CBFE200D97B2B /* ClassifyViewController.m */; };
+		7AE08FC41C3CC06800D97B2B /* GoodActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FC31C3CC06800D97B2B /* GoodActivityViewController.m */; };
+		7AE08FC71C3CC08300D97B2B /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FC61C3CC08300D97B2B /* HotActivityViewController.m */; };
 		F8E26E14DCE3581B2DD9E270 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C0FECD36F3CBFC2BE3428E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +55,22 @@
 		7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A8E9B771C3A1CD500D529C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8E9B791C3A1CD500D529C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AE08FAF1C3CAC7900D97B2B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		7AE08FB21C3CB34800D97B2B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
+		7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
+		7AE08FB61C3CBDC000D97B2B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		7AE08FB91C3CBE7000D97B2B /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		7AE08FBC1C3CBF4300D97B2B /* ThemeViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewViewController.h; sourceTree = "<group>"; };
+		7AE08FBD1C3CBF4300D97B2B /* ThemeViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewViewController.m; sourceTree = "<group>"; };
+		7AE08FBF1C3CBFE200D97B2B /* ClassifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyViewController.h; sourceTree = "<group>"; };
+		7AE08FC01C3CBFE200D97B2B /* ClassifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyViewController.m; sourceTree = "<group>"; };
+		7AE08FC21C3CC06800D97B2B /* GoodActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityViewController.h; sourceTree = "<group>"; };
+		7AE08FC31C3CC06800D97B2B /* GoodActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityViewController.m; sourceTree = "<group>"; };
+		7AE08FC51C3CC08300D97B2B /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
+		7AE08FC61C3CC08300D97B2B /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
 		B8D3842EB655D3CAF228A2C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FF2496CD85BFA8D999F32832 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +175,20 @@
 			children = (
 				7A19A1C71C3A4E300010BAB5 /* MainViewController.h */,
 				7A19A1C81C3A4E300010BAB5 /* MainViewController.m */,
+				7AE08FB61C3CBDC000D97B2B /* SearchViewController.h */,
+				7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */,
+				7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */,
+				7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */,
+				7AE08FB91C3CBE7000D97B2B /* ActivityViewController.h */,
+				7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */,
+				7AE08FBC1C3CBF4300D97B2B /* ThemeViewViewController.h */,
+				7AE08FBD1C3CBF4300D97B2B /* ThemeViewViewController.m */,
+				7AE08FBF1C3CBFE200D97B2B /* ClassifyViewController.h */,
+				7AE08FC01C3CBFE200D97B2B /* ClassifyViewController.m */,
+				7AE08FC21C3CC06800D97B2B /* GoodActivityViewController.h */,
+				7AE08FC31C3CC06800D97B2B /* GoodActivityViewController.m */,
+				7AE08FC51C3CC08300D97B2B /* HotActivityViewController.h */,
+				7AE08FC61C3CC08300D97B2B /* HotActivityViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -193,6 +230,7 @@
 		7A19A1D21C3A4E6B0010BAB5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7AE08FB11C3CB34800D97B2B /* HWTools */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -230,6 +268,7 @@
 				7A8E9B721C3A1CD500D529C4 /* AppDelegate.m */,
 				7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */,
 				7A19A1D21C3A4E6B0010BAB5 /* Library */,
+				7AE08FAE1C3CAC7900D97B2B /* pch */,
 				7A19A1D31C3A4FA60010BAB5 /* Resources */,
 				7A8E9B761C3A1CD500D529C4 /* LaunchScreen.storyboard */,
 				7A8E9B791C3A1CD500D529C4 /* Info.plist */,
@@ -244,6 +283,22 @@
 				7A8E9B6F1C3A1CD500D529C4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AE08FAE1C3CAC7900D97B2B /* pch */ = {
+			isa = PBXGroup;
+			children = (
+				7AE08FAF1C3CAC7900D97B2B /* Prefix.pch */,
+			);
+			path = pch;
+			sourceTree = "<group>";
+		};
+		7AE08FB11C3CB34800D97B2B /* HWTools */ = {
+			isa = PBXGroup;
+			children = (
+				7AE08FB21C3CB34800D97B2B /* Header.h */,
+			);
+			path = HWTools;
 			sourceTree = "<group>";
 		};
 		88982E3C3299CD19C84C53E0 /* Pods */ = {
@@ -380,13 +435,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE08FC11C3CBFE200D97B2B /* ClassifyViewController.m in Sources */,
+				7AE08FC71C3CC08300D97B2B /* HotActivityViewController.m in Sources */,
+				7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */,
+				7AE08FC41C3CC06800D97B2B /* GoodActivityViewController.m in Sources */,
 				7A19A1DD1C3A76780010BAB5 /* MainTableViewCell.m in Sources */,
 				7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */,
 				7A19A1CF1C3A4E300010BAB5 /* DiscoverViewController.m in Sources */,
+				7AE08FBE1C3CBF4300D97B2B /* ThemeViewViewController.m in Sources */,
+				7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */,
 				7A19A1D11C3A4E300010BAB5 /* MineViewController.m in Sources */,
 				7A8E9B701C3A1CD500D529C4 /* main.m in Sources */,
 				7A19A1D01C3A4E300010BAB5 /* MainViewController.m in Sources */,
 				7A39F51C1C3BA06800961839 /* MainModel.m in Sources */,
+				7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +551,8 @@
 			baseConfigurationReference = B8D3842EB655D3CAF228A2C5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HappyWeadFang/pch/Prefix.pch";
 				INFOPLIST_FILE = HappyWeadFang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -502,6 +566,8 @@
 			baseConfigurationReference = FF2496CD85BFA8D999F32832 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HappyWeadFang/pch/Prefix.pch";
 				INFOPLIST_FILE = HappyWeadFang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

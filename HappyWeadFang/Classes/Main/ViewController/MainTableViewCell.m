@@ -26,14 +26,20 @@
 @implementation MainTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
+
 }
 
 - (void)setModel:(MainModel *)model{
-
+    
+    if ([model.type floatValue] == RecommendTypeActivity) {
+        self.activityDistanceBu.hidden = NO;
+    }else {
+        self.activityDistanceBu.hidden = YES;
+    }
+    
     [self.activityIamhe sd_setImageWithURL:[NSURL URLWithString:model.image_big] placeholderImage:nil];
     self.acticityName.text = model.title;
+//    [self.activityDistanceBu setTitle:model.activityDes forState:UIControlStateNormal];
     self.activityPrice.text = model.price;
 }
 
