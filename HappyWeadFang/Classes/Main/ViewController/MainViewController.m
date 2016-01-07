@@ -273,18 +273,17 @@
     
     CGFloat offset = rollPage * ScreenWidth;
     [self.scrollV setContentOffset:CGPointMake(offset, 0) animated:YES];
-    
-   
 }
 
+//当手动滑动scrollview的时候，定时器仍然在计算时间，可能我们刚滑动到下一页，定时器时间刚好有触发，导致当前页面停留不足两秒；
+//解决方案：在scrollview开始移动的时候结束定时器；
+//移动完毕开启定时器；
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self rollScreen];
     //停止定时器后，将定时器置为nil，再次启动时，定时器才能保证正常执行。
-    self.timer = nil;
+//    self.timer = nil;
 }
-
-
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [self startTimer];
 }
