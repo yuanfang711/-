@@ -72,7 +72,7 @@
     
     //请求数据
     [self getModel];
-    
+    [self startTimer];
 
 }
 
@@ -129,7 +129,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        ActivityViewController *activityVC = [[ActivityViewController alloc] init];
+        UIStoryboard *activity = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        ActivityViewController *activityVC = [activity instantiateViewControllerWithIdentifier:@"activityDetailVC"];
+        MainModel *model = self.listArray[indexPath.section][indexPath.row];
+        activityVC.activityID = model.activityId;
         [self.navigationController pushViewController:activityVC animated:YES];
     }else{
         ThemeViewViewController *themeVC= [[ThemeViewViewController alloc] init];
@@ -384,10 +388,13 @@
 #pragma mark --------------- 4个button、精选、热门的点击方法
 //点击广告
 - (void)TouchAdvertisement:(UIButton *)button{
-    
+    //从字典里取出type类型
     NSString *type = self.idArray[button.tag - 100][@"type"];
     if ([type floatValue] == 1) {
-        ActivityViewController *activityVC = [[ActivityViewController alloc] init];
+        
+        UIStoryboard *activity = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        ActivityViewController *activityVC = [activity instantiateViewControllerWithIdentifier:@"activityDetailVC"];
         
         activityVC.activityID = self.idArray[button.tag - 100][@"id"];
         
@@ -408,7 +415,7 @@
     [self.navigationController pushViewController:classVC animated:YES];
 }
 
-//竞选活动
+//精选活动
 - (void)goodActivityButtonAction{
     GoodActivityViewController *goodVC = [[GoodActivityViewController alloc] init];
     [self.navigationController pushViewController:goodVC animated:YES];

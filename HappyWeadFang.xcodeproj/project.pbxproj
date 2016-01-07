@@ -21,6 +21,9 @@
 		7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E9B721C3A1CD500D529C4 /* AppDelegate.m */; };
 		7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */; };
 		7A8E9B781C3A1CD500D529C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B761C3A1CD500D529C4 /* LaunchScreen.storyboard */; };
+		7A9AB2421C3E10DB00BD1D1B /* AcyivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB2411C3E10DB00BD1D1B /* AcyivityDetailView.m */; };
+		7A9AB27D1C3E4C5300BD1D1B /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27C1C3E4C5300BD1D1B /* HWTools.m */; };
+		7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */; };
 		7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */; };
 		7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */; };
 		7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */; };
@@ -57,6 +60,12 @@
 		7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A8E9B771C3A1CD500D529C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8E9B791C3A1CD500D529C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A9AB2401C3E10DB00BD1D1B /* AcyivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcyivityDetailView.h; sourceTree = "<group>"; };
+		7A9AB2411C3E10DB00BD1D1B /* AcyivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcyivityDetailView.m; sourceTree = "<group>"; };
+		7A9AB27B1C3E4C5300BD1D1B /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
+		7A9AB27C1C3E4C5300BD1D1B /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTools.m; sourceTree = "<group>"; };
+		7A9AB27E1C3E5B0B00BD1D1B /* UIView+Estension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Estension.h"; sourceTree = "<group>"; };
+		7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Estension.m"; sourceTree = "<group>"; };
 		7AE08FAF1C3CAC7900D97B2B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7AE08FB21C3CB34800D97B2B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
@@ -158,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				7A19A1D41C3A50680010BAB5 /* Main.storyboard */,
+				7A9AB2401C3E10DB00BD1D1B /* AcyivityDetailView.h */,
+				7A9AB2411C3E10DB00BD1D1B /* AcyivityDetailView.m */,
 				7A19A1DA1C3A76780010BAB5 /* MainTableViewCell.h */,
 				7A19A1DB1C3A76780010BAB5 /* MainTableViewCell.m */,
 				7A19A1DC1C3A76780010BAB5 /* MainTableViewCell.xib */,
@@ -302,6 +313,10 @@
 		7AE08FB11C3CB34800D97B2B /* HWTools */ = {
 			isa = PBXGroup;
 			children = (
+				7A9AB27E1C3E5B0B00BD1D1B /* UIView+Estension.h */,
+				7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */,
+				7A9AB27B1C3E4C5300BD1D1B /* HWTools.h */,
+				7A9AB27C1C3E4C5300BD1D1B /* HWTools.m */,
 				7AE08FCD1C3D205500D97B2B /* UIViewController+Common.h */,
 				7AE08FCE1C3D205500D97B2B /* UIViewController+Common.m */,
 				7AE08FB21C3CB34800D97B2B /* Header.h */,
@@ -444,12 +459,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9AB27D1C3E4C5300BD1D1B /* HWTools.m in Sources */,
 				7AE08FC11C3CBFE200D97B2B /* ClassifyViewController.m in Sources */,
 				7AE08FC71C3CC08300D97B2B /* HotActivityViewController.m in Sources */,
 				7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */,
 				7AE08FC41C3CC06800D97B2B /* GoodActivityViewController.m in Sources */,
 				7A19A1DD1C3A76780010BAB5 /* MainTableViewCell.m in Sources */,
 				7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */,
+				7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */,
 				7A19A1CF1C3A4E300010BAB5 /* DiscoverViewController.m in Sources */,
 				7AE08FBE1C3CBF4300D97B2B /* ThemeViewViewController.m in Sources */,
 				7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */,
@@ -459,6 +476,7 @@
 				7A39F51C1C3BA06800961839 /* MainModel.m in Sources */,
 				7AE08FCF1C3D205500D97B2B /* UIViewController+Common.m in Sources */,
 				7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */,
+				7A9AB2421C3E10DB00BD1D1B /* AcyivityDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

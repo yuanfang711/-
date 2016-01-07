@@ -8,10 +8,16 @@
 
 #import "ActivityViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
-#import "MBProgressHUD.h"
+#import "AcyivityDetailView.h"
 
 
 @interface ActivityViewController ()
+{
+    NSString *_phoneNum;
+}
+
+@property (strong, nonatomic) IBOutlet AcyivityDetailView *activityDetailView;
+
 
 @end
 
@@ -20,10 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor magentaColor];
+//    self.scrollV.backgroundColor = [UIColor cyanColor];
     self.title = @"活动详情";
+
+    [self showBackButton];
     
-        
+    //去地图界面
+    [self.activityDetailView.mapButton addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
+    //打电话
+    [self.activityDetailView.makeCallButt addTarget:self action:@selector(goCellPhone:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     //网络请求
     [self getModel];
 }
@@ -32,23 +45,47 @@
    //初始化
     AFHTTPSessionManager *sessionM = [[AFHTTPSessionManager alloc] init];
     ;
-    NSLog(@"%@&%@",kActivityDetail,self.activityID);
     sessionM.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    //请求开始之前，加
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     [sessionM GET:[NSString stringWithFormat:@"%@&id=%@",kActivityDetail,self.activityID] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
+
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+    
+        NSDictionary *dic = responseObject;
+        NSString *status = dic[@"status"];
+        NSInteger code = [dic[@"code" ] integerValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *successDic = dic[@"success"];
+           // NSLog(@"%@",successDic);
+            self.activityDetailView.dataDic = successDic;
+            _phoneNum = dic[@"tel"];
+        }else{
+            
+        }
 //        NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+//        NSLog(@"%@",error);
     }];
     
 }
+
+- (void)goToMap:(UIButton *)button{
+    
+}
+//打电话
+- (void)goCellPhone:(UIButton *)button{
+  
+     //程序外打电话，之后不再返回当前的应用程序
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_phoneNum]]];
+    
+    //程序内：打完电话后还返回当前的应用程序
+    UIWebView *cellPhoneNum = [[UIWebView alloc] init];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel :%@",_phoneNum]]];
+    [cellPhoneNum loadRequest:request];
+    [self.view addSubview:cellPhoneNum];
+}
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
