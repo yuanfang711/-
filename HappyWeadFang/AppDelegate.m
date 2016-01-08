@@ -24,7 +24,7 @@
     // Override point for customization after application launch.
     
     //UITabBar
-    UITabBarController *tabbarC = [[UITabBarController alloc] init];
+    self.tabbarC = [[UITabBarController alloc] init];
     
 //主页
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -57,11 +57,11 @@
     mainNav.tabBarItem.selectedImage = [selectedImage3 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     //添加到tabber的视图上
-    tabbarC.viewControllers = @[mainNav, disNAV, meNAV];
-    tabbarC.tabBar.backgroundColor = [UIColor whiteColor];
+    _tabbarC.viewControllers = @[mainNav, disNAV, meNAV];
+    _tabbarC.tabBar.backgroundColor = [UIColor whiteColor];
     
     //添加为根视图
-    self.window.rootViewController = tabbarC;
+    self.window.rootViewController = _tabbarC;
     
     
     self.window.backgroundColor = [UIColor whiteColor];

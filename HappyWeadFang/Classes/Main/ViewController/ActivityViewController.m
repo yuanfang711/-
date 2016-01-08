@@ -1,6 +1,6 @@
 //
 //  ActivityViewController.m
-//  HappyWeadFang
+//  活动详情
 //
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 范芳芳. All rights reserved.
@@ -9,7 +9,7 @@
 #import "ActivityViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "AcyivityDetailView.h"
-
+#import "MainViewController.h"
 
 @interface ActivityViewController ()
 {
@@ -31,6 +31,9 @@
 
     [self showBackButton];
     
+    
+    //隐藏TabBar
+    self.tabBarController.tabBar.hidden = NO;
     //去地图界面
     [self.activityDetailView.mapButton addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
     //打电话
@@ -38,7 +41,7 @@
     
     
     //网络请求
-    [self getModel];
+//    [self getModel];
 }
 #pragma mark ----------- 网络请求
 - (void)getModel{
@@ -61,7 +64,7 @@
         }else{
             
         }
-//        NSLog(@"%@",responseObject);
+        NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 //        NSLog(@"%@",error);
     }];

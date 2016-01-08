@@ -18,7 +18,8 @@
 #import <UIKit/UIKit.h>
 //屏幕宽高
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
-
+#define  ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kAppDelegate   [UIApplication sharedApplication].delegate
 
 #ifdef DEBUG
 #	define FFFLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

@@ -71,7 +71,7 @@
     [self configTableViewHeadView];
     
     //请求数据
-    [self getModel];
+//    [self getModel];
     [self startTimer];
 
 }
@@ -128,15 +128,16 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MainModel *model = self.listArray[indexPath.section][indexPath.row];
     if (indexPath.section == 0) {
         UIStoryboard *activity = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         ActivityViewController *activityVC = [activity instantiateViewControllerWithIdentifier:@"activityDetailVC"];
-        MainModel *model = self.listArray[indexPath.section][indexPath.row];
         activityVC.activityID = model.activityId;
         [self.navigationController pushViewController:activityVC animated:YES];
     }else{
         ThemeViewViewController *themeVC= [[ThemeViewViewController alloc] init];
+        themeVC.themeId = model.activityId;
         [self.navigationController pushViewController:themeVC animated:YES];
     }
 }
@@ -271,12 +272,16 @@
 }
 //每两秒执行一次图片自动轮播
 - (void)rollScreen{
-    //当前页
-    NSInteger rollPage = (self.pageC.currentPage + 1) % self.idArray.count;
-    self.pageC.currentPage = rollPage;
+    if (self.idArray.count > 0) {
+        //当前页 +1
+        //self.idArray.count的元素可能为0，当0时对取余的时候，没有意义
+        NSInteger rollPage = (self.pageC.currentPage + 1) % self.idArray.count;
+        self.pageC.currentPage = rollPage;
+        
+        CGFloat offset = rollPage * ScreenWidth;
+        [self.scrollV setContentOffset:CGPointMake(offset, 0) animated:YES];
+    }
     
-    CGFloat offset = rollPage * ScreenWidth;
-    [self.scrollV setContentOffset:CGPointMake(offset, 0) animated:YES];
 }
 
 //当手动滑动scrollview的时候，定时器仍然在计算时间，可能我们刚滑动到下一页，定时器时间刚好有触发，导致当前页面停留不足两秒；
@@ -395,15 +400,15 @@
         UIStoryboard *activity = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         ActivityViewController *activityVC = [activity instantiateViewControllerWithIdentifier:@"activityDetailVC"];
-        
         activityVC.activityID = self.idArray[button.tag - 100][@"id"];
-        
         [self.navigationController pushViewController:activityVC animated:YES];
         
         
     }else{
-        HotActivityViewController *hotVC = [[HotActivityViewController alloc] init];
-        [self.navigationController pushViewController:hotVC animated:YES];
+        ThemeViewViewController *themeVC = [[ThemeViewViewController alloc] init];
+        themeVC.themeId = self.idArray[button.tag - 100][@"id"];
+        themeVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:themeVC animated:YES];
         
     }
   
@@ -418,6 +423,7 @@
 //精选活动
 - (void)goodActivityButtonAction{
     GoodActivityViewController *goodVC = [[GoodActivityViewController alloc] init];
+    goodVC.tabBarController.tabBar.hidden = YES;
     [self.navigationController pushViewController:goodVC animated:YES];
 }
 
