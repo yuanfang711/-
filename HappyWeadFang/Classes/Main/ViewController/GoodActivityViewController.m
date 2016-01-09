@@ -2,23 +2,18 @@
 //  GoodActivityViewController.m
 //  HappyWeadFang
 //
-//  Created by scjy on 16/1/6.
+//  Created by scjy on 16/1/9.
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
 #import "GoodActivityViewController.h"
 #import "PullingRefreshTableView.h"
-#import "GoodActivityTableViewCell.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
+#import "GoodTableViewCell.h"
 
+@interface GoodActivityViewController ()<UITableViewDelegate,UITableViewDataSource,PullingRefreshTableViewDelegate>
 
-@interface GoodActivityViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>
-{
-    NSInteger _pageCount; //请求的页码
-}
-@property(nonatomic, strong) PullingRefreshTableView *tableview;
-
-@property(nonatomic, assign) BOOL refreshing;
+@property(nonatomic,assign) BOOL refreshing;
+@property(nonatomic, strong) PullingRefreshTableView *tableView;
 
 @end
 
@@ -30,97 +25,85 @@
     
     self.title = @"精选活动";
     
+    //返回主页的按钮
     [self showBackButton];
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    [self.view addSubview:self.tableView];
+    
     //注册cell
-    [self.tableview registerNib:[UINib nibWithNibName:@"GoodActivityTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [self.view addSubview:self.tableview];
+    [self.tableView registerNib:[UINib nibWithNibName:@"GoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+
 }
 
-#pragma mark ----------  UITableViewDataSource
+
+#pragma mark ---------- UITableViewDataSource
+//cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoodTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    return cell;
+}
 //分区的行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;
 }
 
-//cell显示
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    GoodActivityTableViewCell *goodcell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    goodcell.contentView.backgroundColor = [UIColor redColor];
-    return goodcell;
-    
-}
 
-#pragma mark ----------  UITableViewDelegate
-//点击方法
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-}
+#pragma mark ---------- UITableViewDelegate
 
-#pragma mark --------------- PullingRefreshTableViewDelegate
-//开始下拉刷新
-- (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+
+#pragma mark ---------- PullingRefreshTableViewDelegate
+//开始加载
+-(void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
-    _pageCount = 1;
+
+}
+
+
+//开始刷新
+-(void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    self.refreshing = YES;
     
+    [self performSelector:@selector(loadData
+) withObject:nil afterDelay:1.0];
 }
 
-//上拉加载
-- (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
-
-    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
-    _pageCount += 1;
-}
 
 //刷新完成时间
-- (NSDate *)pullingTableViewRefreshingFinishedDate{
-    //创建一个NSDataFormatter显示刷新时间
+-(NSDate *)pullingTableViewRefreshingFinishedDate{
+    
     return [HWTools getSystemTime];
-    
 }
 
-#pragma mark ---------------- ScrollView两个方法
+#pragma mark ------- 懒加载
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.tableview tableViewDidScroll:scrollView];
-}
-
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    [self.tableview tableViewDidEndDragging:scrollView];
-}
-
-#pragma mark ----- 加载数据
-//加载数据
-- (void)loadData{
-    FFFLog(@"sadss");
-    
-    AFHTTPSessionManager *session = [[AFHTTPSessionManager alloc] init];
-    session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [session GET:[NSString stringWithFormat:@"%@&id=%ld",kGoodActivity,_pageCount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//        NSLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-    
-    [self.tableview tableViewDidFinishedLoading];
-    self.tableview.reachedTheEnd = NO;
-    
-}
-
-#pragma mark --------------- LazyLoading
--(PullingRefreshTableView *)tableview{
-    if (_tableview == nil) {
-        self.tableview = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth,ScreenHeight -64) pullingDelegate:self];
-        self.tableview.delegate = self;
-        self.tableview.dataSource = self;
-        self.tableview.rowHeight = 90;
+-(PullingRefreshTableView *)tableView{
+    if (_tableView == nil) {
+        self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight- 64) pullingDelegate:self];
+        self.tableView.rowHeight = 90;
     }
-    return _tableview;
+    return _tableView;
 }
 
+
+#pragma mark ---------- 加载数据
+- (void)loadData{
+    
+}
+
+//手指开始拖动
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.tableView tableViewDidScroll:scrollView];
+}
+
+//下拉刷新开始时调用
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self.tableView tableViewDidScroll:scrollView];
+}
 
 
 

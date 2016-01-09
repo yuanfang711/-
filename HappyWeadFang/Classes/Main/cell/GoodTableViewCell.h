@@ -1,5 +1,5 @@
 //
-//  GoodActivityViewController.h
+//  GoodTableViewCell.h
 //  HappyWeadFang
 //
 //  Created by scjy on 16/1/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodActivityViewController : UIViewController
+@interface GoodTableViewCell : UITableViewCell
 
 @end

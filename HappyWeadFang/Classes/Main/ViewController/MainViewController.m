@@ -423,7 +423,7 @@
 //精选活动
 - (void)goodActivityButtonAction{
     GoodActivityViewController *goodVC = [[GoodActivityViewController alloc] init];
-    goodVC.tabBarController.tabBar.hidden = YES;
+//    goodVC.tabBarController.tabBar.hidden = YES;
     [self.navigationController pushViewController:goodVC animated:YES];
 }
 

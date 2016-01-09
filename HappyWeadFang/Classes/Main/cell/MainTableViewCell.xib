@@ -48,7 +48,7 @@ EO+/pTE1NzQ1MTI0NzUxA
                 <outlet property="activityIamhe" destination="lIo-v0-SKc" id="dYl-yZ-BuW"/>
                 <outlet property="activityPrice" destination="fv3-Gy-uq3" id="6IO-Zs-nSt"/>
             </connections>
-            <point key="canvasLocation" x="631.5" y="435.5"/>
+            <point key="canvasLocation" x="370.5" y="390.5"/>
         </tableViewCell>
     </objects>
     <resources>
