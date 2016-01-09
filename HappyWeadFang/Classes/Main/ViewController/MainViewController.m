@@ -409,9 +409,7 @@
         themeVC.themeId = self.idArray[button.tag - 100][@"id"];
         themeVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:themeVC animated:YES];
-        
     }
-  
 }
 
 //分类列表
@@ -423,7 +421,7 @@
 //精选活动
 - (void)goodActivityButtonAction{
     GoodActivityViewController *goodVC = [[GoodActivityViewController alloc] init];
-//    goodVC.tabBarController.tabBar.hidden = YES;
+    goodVC.tabBarController.tabBar.hidden = YES;
     [self.navigationController pushViewController:goodVC animated:YES];
 }
 

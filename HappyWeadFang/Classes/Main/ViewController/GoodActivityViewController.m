@@ -11,34 +11,27 @@
 #import "GoodTableViewCell.h"
 
 @interface GoodActivityViewController ()<UITableViewDelegate,UITableViewDataSource,PullingRefreshTableViewDelegate>
-
 @property(nonatomic,assign) BOOL refreshing;
 @property(nonatomic, strong) PullingRefreshTableView *tableView;
 
 @end
 
 @implementation GoodActivityViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = @"精选活动";
-    
     //返回主页的按钮
     [self showBackButton];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
     [self.view addSubview:self.tableView];
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    
-
 }
-
 
 #pragma mark ---------- UITableViewDataSource
 //cell
@@ -51,23 +44,18 @@
     return 20;
 }
 
-
 #pragma mark ---------- UITableViewDelegate
 
 
 #pragma mark ---------- PullingRefreshTableViewDelegate
 //开始加载
 -(void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
-    
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
-
 }
-
 
 //开始刷新
 -(void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     self.refreshing = YES;
-    
     [self performSelector:@selector(loadData
 ) withObject:nil afterDelay:1.0];
 }
@@ -75,12 +63,10 @@
 
 //刷新完成时间
 -(NSDate *)pullingTableViewRefreshingFinishedDate{
-    
     return [HWTools getSystemTime];
 }
 
 #pragma mark ------- 懒加载
-
 -(PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
         self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight- 64) pullingDelegate:self];
@@ -89,12 +75,10 @@
     return _tableView;
 }
 
-
 #pragma mark ---------- 加载数据
 - (void)loadData{
     
 }
-
 //手指开始拖动
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.tableView tableViewDidScroll:scrollView];
@@ -104,8 +88,6 @@
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [self.tableView tableViewDidScroll:scrollView];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

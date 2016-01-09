@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoodActivityModel.h"
 @interface GoodTableViewCell : UITableViewCell
+@property(nonatomic, strong) GoodActivityModel *goodModel;
 
 @end

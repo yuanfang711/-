@@ -30,40 +30,26 @@
     
     //返回图标
     [self showBackButton];
-    
-
-    
 }
-
 
 - (void)getModel{
     AFHTTPSessionManager *sessionM = [[AFHTTPSessionManager alloc] init];
-    
-    
-    sessionM.responseSerializer.acceptableContentTypes =  [NSSet setWithObject:@"text/html"];;
-
+    sessionM.responseSerializer.acceptableContentTypes =  [NSSet setWithObject:@"text/html"];
     [sessionM GET:[NSString stringWithFormat:@"%@&id=%@",kActivityTheme,self.themeId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 //        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     
         NSDictionary *dic = responseObject;
-
         NSString *status = dic[@"status"];
         NSInteger code = [dic[@"code"] integerValue];
-        
         if ([status isEqualToString:@"success"] && code == 0) {
-            
             self.themeView.dataDic = dic[@"success"];
         }
-        
-        
         //        FFFLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         FFFLog(@"%@",error);
     }];
-    
 }
-
 
 -(ActivityThemeView *)themeView{
     if (_themeView == nil) {
@@ -71,7 +57,6 @@
     }
     return _themeView;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

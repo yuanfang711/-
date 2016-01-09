@@ -19,17 +19,14 @@
 @property(nonatomic, strong) NSString *age;
 //次数
 @property(nonatomic, strong) NSString *count;
-
+//价格
 @property(nonatomic, strong) NSString *price;
-
+//id号
 @property(nonatomic, strong) NSString *goodId;
-
+//地址
 @property(nonatomic, strong) NSString *address;
-
+//类型
 @property(nonatomic, strong) NSString *type;
-
-
-
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
 
 
