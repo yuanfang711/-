@@ -1,6 +1,6 @@
 //
 //  GoodActivityViewController.m
-//  HappyWeadFang
+//  精选活动
 //
 //  Created by scjy on 16/1/9.
 //  Copyright © 2016年 范芳芳. All rights reserved.
@@ -80,8 +80,10 @@
 //cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
     GoodActivityModel *model = self.array[indexPath.row];
     cell.goodModel = model;
+    
     return cell;
 }
 //分区的行数

@@ -21,13 +21,12 @@
     self.tabBarController.tabBar.hidden = NO;
     
     [self.view addSubview:self.themeView];
-    [self getModel];
+//    [self getModel];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     //返回图标
     [self showBackButton];
 }
@@ -38,7 +37,6 @@
     [sessionM GET:[NSString stringWithFormat:@"%@&id=%@",kActivityTheme,self.themeId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 //        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-    
         NSDictionary *dic = responseObject;
         NSString *status = dic[@"status"];
         NSInteger code = [dic[@"code"] integerValue];

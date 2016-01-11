@@ -1,6 +1,6 @@
 //
 //  MainViewController.m
-//  HappyWeadFang
+//  主页
 //
 //  Created by scjy on 16/1/4.
 //  Copyright © 2016年 范芳芳. All rights reserved.
@@ -306,7 +306,7 @@
     [managers GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
+//        FFFLog(@"%@",responseObject);
         
         NSDictionary *diction = responseObject;
         NSString *status = diction[@"status"];

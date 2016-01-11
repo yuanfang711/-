@@ -26,6 +26,10 @@
 		7A3D71171C3F9E82003B616E /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3D71131C3F9E82003B616E /* blueArrow.png */; };
 		7A3D71181C3F9E82003B616E /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3D71141C3F9E82003B616E /* blueArrowDown.png */; };
 		7A3D71191C3F9E82003B616E /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D71161C3F9E82003B616E /* PullingRefreshTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7A7900021C43A8440049133E /* typeid6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A79FFFE1C43A8440049133E /* typeid6.plist */; };
+		7A7900031C43A8440049133E /* typeid22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A79FFFF1C43A8440049133E /* typeid22.plist */; };
+		7A7900041C43A8440049133E /* typeid23.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7900001C43A8440049133E /* typeid23.plist */; };
+		7A7900051C43A8440049133E /* typeud21.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7900011C43A8440049133E /* typeud21.plist */; };
 		7A792C391C4218900059C918 /* HotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A792C371C4218900059C918 /* HotTableViewCell.m */; };
 		7A792C3A1C4218900059C918 /* HotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A792C381C4218900059C918 /* HotTableViewCell.xib */; };
 		7A8B981A1C42696A0023E6E5 /* HotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B98191C42696A0023E6E5 /* HotModel.m */; };
@@ -38,6 +42,10 @@
 		7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */; };
 		7AB1328E1C3FBCC000192BEF /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1328D1C3FBCC000192BEF /* good.plist */; };
 		7AB132911C3FBE3600192BEF /* GoodActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB132901C3FBE3600192BEF /* GoodActivityModel.m */; };
+		7AB5F6791C43912700E88877 /* VOContentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6721C43912700E88877 /* VOContentLayer.m */; };
+		7AB5F67A1C43912700E88877 /* VOIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6741C43912700E88877 /* VOIndicatorAnimation.m */; };
+		7AB5F67B1C43912700E88877 /* VOSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6761C43912700E88877 /* VOSegment.m */; };
+		7AB5F67C1C43912700E88877 /* VOSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6781C43912700E88877 /* VOSegmentedControl.m */; };
 		7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */; };
 		7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */; };
 		7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */; };
@@ -78,9 +86,13 @@
 		7A3D71141C3F9E82003B616E /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
 		7A3D71151C3F9E82003B616E /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
 		7A3D71161C3F9E82003B616E /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
+		7A7900001C43A8440049133E /* typeid23.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid23.plist; sourceTree = "<group>"; };
+		7A7900011C43A8440049133E /* typeud21.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeud21.plist; sourceTree = "<group>"; };
 		7A792C361C4218900059C918 /* HotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTableViewCell.h; sourceTree = "<group>"; };
 		7A792C371C4218900059C918 /* HotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTableViewCell.m; sourceTree = "<group>"; };
 		7A792C381C4218900059C918 /* HotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTableViewCell.xib; sourceTree = "<group>"; };
+		7A79FFFE1C43A8440049133E /* typeid6.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid6.plist; sourceTree = "<group>"; };
+		7A79FFFF1C43A8440049133E /* typeid22.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid22.plist; sourceTree = "<group>"; };
 		7A8B98181C42696A0023E6E5 /* HotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotModel.h; sourceTree = "<group>"; };
 		7A8B98191C42696A0023E6E5 /* HotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotModel.m; sourceTree = "<group>"; };
 		7A8E9B6B1C3A1CD500D529C4 /* HappyWeadFang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyWeadFang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +111,14 @@
 		7AB1328D1C3FBCC000192BEF /* good.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = good.plist; sourceTree = "<group>"; };
 		7AB1328F1C3FBE3600192BEF /* GoodActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityModel.h; sourceTree = "<group>"; };
 		7AB132901C3FBE3600192BEF /* GoodActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityModel.m; sourceTree = "<group>"; };
+		7AB5F6711C43912700E88877 /* VOContentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOContentLayer.h; sourceTree = "<group>"; };
+		7AB5F6721C43912700E88877 /* VOContentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOContentLayer.m; sourceTree = "<group>"; };
+		7AB5F6731C43912700E88877 /* VOIndicatorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOIndicatorAnimation.h; sourceTree = "<group>"; };
+		7AB5F6741C43912700E88877 /* VOIndicatorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOIndicatorAnimation.m; sourceTree = "<group>"; };
+		7AB5F6751C43912700E88877 /* VOSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSegment.h; sourceTree = "<group>"; };
+		7AB5F6761C43912700E88877 /* VOSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegment.m; sourceTree = "<group>"; };
+		7AB5F6771C43912700E88877 /* VOSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSegmentedControl.h; sourceTree = "<group>"; };
+		7AB5F6781C43912700E88877 /* VOSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegmentedControl.m; sourceTree = "<group>"; };
 		7AE08FAF1C3CAC7900D97B2B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7AE08FB21C3CB34800D97B2B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
@@ -219,6 +239,10 @@
 			children = (
 				7A3D71101C3F9A9C003B616E /* Main.plist */,
 				7A3D71041C3F5817003B616E /* Activity.plist */,
+				7A79FFFE1C43A8440049133E /* typeid6.plist */,
+				7A79FFFF1C43A8440049133E /* typeid22.plist */,
+				7A7900001C43A8440049133E /* typeid23.plist */,
+				7A7900011C43A8440049133E /* typeud21.plist */,
 				7AB1328F1C3FBE3600192BEF /* GoodActivityModel.h */,
 				7AB132901C3FBE3600192BEF /* GoodActivityModel.m */,
 				7A8B98181C42696A0023E6E5 /* HotModel.h */,
@@ -240,16 +264,16 @@
 				7AE08FBA1C3CBE7000D97B2B /* ActivityViewController.m */,
 				7AE08FBC1C3CBF4300D97B2B /* ThemeViewViewController.h */,
 				7AE08FBD1C3CBF4300D97B2B /* ThemeViewViewController.m */,
-				7AE08FB61C3CBDC000D97B2B /* SearchViewController.h */,
-				7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */,
-				7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */,
-				7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */,
-				7AE08FBF1C3CBFE200D97B2B /* ClassifyViewController.h */,
-				7AE08FC01C3CBFE200D97B2B /* ClassifyViewController.m */,
 				7A06D5441C40D9C7003039A8 /* GoodActivityViewController.h */,
 				7A06D5451C40D9C7003039A8 /* GoodActivityViewController.m */,
 				7AE08FC51C3CC08300D97B2B /* HotActivityViewController.h */,
 				7AE08FC61C3CC08300D97B2B /* HotActivityViewController.m */,
+				7AE08FBF1C3CBFE200D97B2B /* ClassifyViewController.h */,
+				7AE08FC01C3CBFE200D97B2B /* ClassifyViewController.m */,
+				7AE08FB61C3CBDC000D97B2B /* SearchViewController.h */,
+				7AE08FB71C3CBDC000D97B2B /* SearchViewController.m */,
+				7AE08FB31C3CBC1B00D97B2B /* SelectViewController.h */,
+				7AE08FB41C3CBC1B00D97B2B /* SelectViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +315,7 @@
 		7A19A1D21C3A4E6B0010BAB5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7AB5F6701C43912700E88877 /* VOSegmentedControl */,
 				7A3D71121C3F9E82003B616E /* PullingRefreshTableView */,
 				7AE08FB11C3CB34800D97B2B /* HWTools */,
 			);
@@ -356,6 +381,21 @@
 				7A8E9B6F1C3A1CD500D529C4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AB5F6701C43912700E88877 /* VOSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				7AB5F6711C43912700E88877 /* VOContentLayer.h */,
+				7AB5F6721C43912700E88877 /* VOContentLayer.m */,
+				7AB5F6731C43912700E88877 /* VOIndicatorAnimation.h */,
+				7AB5F6741C43912700E88877 /* VOIndicatorAnimation.m */,
+				7AB5F6751C43912700E88877 /* VOSegment.h */,
+				7AB5F6761C43912700E88877 /* VOSegment.m */,
+				7AB5F6771C43912700E88877 /* VOSegmentedControl.h */,
+				7AB5F6781C43912700E88877 /* VOSegmentedControl.m */,
+			);
+			path = VOSegmentedControl;
 			sourceTree = "<group>";
 		};
 		7AE08FAE1C3CAC7900D97B2B /* pch */ = {
@@ -456,9 +496,13 @@
 				7A3D71181C3F9E82003B616E /* blueArrowDown.png in Resources */,
 				7A19A1D91C3A50C30010BAB5 /* Mine.storyboard in Resources */,
 				7AB1328E1C3FBCC000192BEF /* good.plist in Resources */,
+				7A7900041C43A8440049133E /* typeid23.plist in Resources */,
 				7A3D71111C3F9A9C003B616E /* Main.plist in Resources */,
 				7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */,
+				7A7900021C43A8440049133E /* typeid6.plist in Resources */,
 				7A3D71171C3F9E82003B616E /* blueArrow.png in Resources */,
+				7A7900051C43A8440049133E /* typeud21.plist in Resources */,
+				7A7900031C43A8440049133E /* typeid22.plist in Resources */,
 				7A06D54B1C40DA32003039A8 /* GoodTableViewCell.xib in Resources */,
 				7A3D71071C3F5B08003B616E /* Theme.plist in Resources */,
 				7A8E9B781C3A1CD500D529C4 /* LaunchScreen.storyboard in Resources */,
@@ -522,8 +566,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9AB27D1C3E4C5300BD1D1B /* HWTools.m in Sources */,
+				7AB5F67A1C43912700E88877 /* VOIndicatorAnimation.m in Sources */,
 				7A8B981A1C42696A0023E6E5 /* HotModel.m in Sources */,
+				7AB5F6791C43912700E88877 /* VOContentLayer.m in Sources */,
 				7AE08FC11C3CBFE200D97B2B /* ClassifyViewController.m in Sources */,
+				7AB5F67B1C43912700E88877 /* VOSegment.m in Sources */,
 				7AE08FC71C3CC08300D97B2B /* HotActivityViewController.m in Sources */,
 				7AE08FB51C3CBC1B00D97B2B /* SelectViewController.m in Sources */,
 				7A06D5461C40D9C7003039A8 /* GoodActivityViewController.m in Sources */,
@@ -531,6 +578,7 @@
 				7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */,
 				7A19A1CF1C3A4E300010BAB5 /* DiscoverViewController.m in Sources */,
 				7AE08FBE1C3CBF4300D97B2B /* ThemeViewViewController.m in Sources */,
+				7AB5F67C1C43912700E88877 /* VOSegmentedControl.m in Sources */,
 				7AB132911C3FBE3600192BEF /* GoodActivityModel.m in Sources */,
 				7A06D54A1C40DA32003039A8 /* GoodTableViewCell.m in Sources */,
 				7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */,
