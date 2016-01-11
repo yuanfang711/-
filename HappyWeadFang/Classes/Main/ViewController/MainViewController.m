@@ -337,29 +337,19 @@
             NSArray *adArray = dic[@"adData"];
             for (NSDictionary *dis in adArray) {
                 NSDictionary *dic = @{@"url":dis[@"url"],@"type":dis[@"type"],@"id":dis[@"id"]};
-                
                 [self.idArray addObject:dic];
-                
             }
 //            [self startTimer];
             //拿到数据后，重新刷新
             [self configTableViewHeadView];
-            
             NSString *cityName = dic[@"cityname"];
-            
             //已请求回来的城市作为导航栏的左标题
             self.navigationItem.leftBarButtonItem.title = cityName;
-
-            
         }else{
-            
         }
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         FFFLog(@"%@",error);
     }];
-    
 }
 #pragma mark ------------------- 懒加载
 - (NSMutableArray *)listArray{
@@ -385,7 +375,6 @@
 - (NSMutableArray *)idArray{
     if (_idArray == nil) {
         self.idArray = [NSMutableArray new];
-        
     }
     return _idArray;
 }
@@ -401,9 +390,8 @@
         
         ActivityViewController *activityVC = [activity instantiateViewControllerWithIdentifier:@"activityDetailVC"];
         activityVC.activityID = self.idArray[button.tag - 100][@"id"];
+        activityVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:activityVC animated:YES];
-        
-        
     }else{
         ThemeViewViewController *themeVC = [[ThemeViewViewController alloc] init];
         themeVC.themeId = self.idArray[button.tag - 100][@"id"];
@@ -415,23 +403,23 @@
 //分类列表
 - (void)mainActivityButtonAction{
     ClassifyViewController *classVC = [[ClassifyViewController alloc] init];
+    classVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:classVC animated:YES];
 }
 
 //精选活动
 - (void)goodActivityButtonAction{
     GoodActivityViewController *goodVC = [[GoodActivityViewController alloc] init];
-    goodVC.tabBarController.tabBar.hidden = YES;
+    goodVC.hidesBottomBarWhenPushed= YES;
     [self.navigationController pushViewController:goodVC animated:YES];
 }
 
 //热门专题
 - (void)HotActivityButtonAction{
     HotActivityViewController *hotVC = [[HotActivityViewController alloc] init];
+    hotVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:hotVC animated:YES];
 }
-
-
 
 #pragma mark --------------- 首页轮播图的小圆点
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

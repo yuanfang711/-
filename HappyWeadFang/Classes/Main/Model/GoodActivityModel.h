@@ -10,7 +10,6 @@
 
 @interface GoodActivityModel : NSObject
 
-@property(nonatomic, strong) GoodActivityModel *model;
 //标题
 @property(nonatomic, strong) NSString *title;
 //图片
@@ -27,6 +26,9 @@
 @property(nonatomic, strong) NSString *address;
 //类型
 @property(nonatomic, strong) NSString *type;
+
+
+
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
 
 

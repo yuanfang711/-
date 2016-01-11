@@ -28,17 +28,10 @@
         //id号
         self.goodId = dic[@"id"];
         //赞的次数
-        self.count = dic[@"count"];
+        self.count = dic[@"counts"];
     }
     return self;
 }
-
-
-
--(void)setModel:(GoodActivityModel *)model{
-    
-}
-
 
 
 @end

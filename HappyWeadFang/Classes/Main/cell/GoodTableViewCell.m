@@ -14,21 +14,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *ageLable;
 @property (weak, nonatomic) IBOutlet UILabel *priceLable;
 @property (weak, nonatomic) IBOutlet UILabel *activityDesL;
-@property (weak, nonatomic) IBOutlet UILabel *activityCount;
+
+@property (weak, nonatomic) IBOutlet UIButton *countButton;
 
 @end
 @implementation GoodTableViewCell
+
 - (void)setGoodModel:(GoodActivityModel *)goodModel{
     self.activityTitleL.text = goodModel.title; //标题
+
     //图片
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:goodModel.image] placeholderImage:nil];
     //价格
-    self.priceLable.text = goodModel.price;
+   self.priceLable.text = goodModel.price;
+
     //次数
-    self.activityCount.text = goodModel.count;
+    [self.countButton setTitle:[NSString stringWithFormat:@"%lu",[goodModel.count integerValue]] forState:UIControlStateNormal];
+
     //年龄
     self.ageLable.text = goodModel.age;
     //距离
+    
+    
     
 }
 - (void)awakeFromNib {
