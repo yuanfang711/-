@@ -25,6 +25,9 @@
 
     //图片
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:goodModel.image] placeholderImage:nil];
+    self.headImageView.layer.cornerRadius = 10;
+    self.headImageView.clipsToBounds = YES;
+    
     //价格
    self.priceLable.text = goodModel.price;
 

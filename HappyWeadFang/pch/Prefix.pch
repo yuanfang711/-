@@ -16,6 +16,13 @@
 #import "HWTools.h"
 #import "UIView+Estension.h"
 #import <UIKit/UIKit.h>
+
+#define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
+
+#define SeparatorColor RGB(228, 228, 228) //222 160 改成170
+
+
+
 //屏幕宽高
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define  ScreenHeight [UIScreen mainScreen].bounds.size.height

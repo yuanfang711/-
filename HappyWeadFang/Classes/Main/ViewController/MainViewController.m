@@ -50,13 +50,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:96.0/255.0 green:181.0/255.0 blue:191.0/255.0 alpha:1.0];
-    
     //设置北京
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction)];
     self.navigationItem.leftBarButtonItem = leftBtn;
     leftBtn.tintColor = [UIColor whiteColor];
-    
     
     //搜索按钮
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -67,13 +64,10 @@
     self.navigationItem.rightBarButtonItem = rightBtnu;
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
-    
     [self configTableViewHeadView];
-    
     //请求数据
 //    [self getModel];
     [self startTimer];
-
 }
 
 
@@ -192,7 +186,7 @@
         button.frame = CGRectMake(i * ScreenWidth/4 , 186, ScreenWidth/4 - 5, (343 - 186 ) / 2);
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%02d",i +1]] forState:UIControlStateNormal];
         button.tag = 100 +i;
-        [button addTarget:self action:@selector(mainActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(mainActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.headView addSubview:button];
         
        
@@ -401,8 +395,9 @@
 }
 
 //分类列表
-- (void)mainActivityButtonAction{
+- (void)mainActivityButtonAction:(UIButton *)button{
     ClassifyViewController *classVC = [[ClassifyViewController alloc] init];
+    classVC.classType = (button.tag -100) + 1;
     classVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:classVC animated:YES];
 }

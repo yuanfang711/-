@@ -33,7 +33,7 @@
     
     
     //隐藏TabBar
-    self.tabBarController.tabBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
     //去地图界面
     [self.activityDetailView.mapButton addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
     //打电话
@@ -41,7 +41,7 @@
     
     
     //网络请求
-//    [self getModel];
+    [self getModel];
 }
 #pragma mark ----------- 网络请求
 - (void)getModel{

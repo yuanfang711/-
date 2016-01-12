@@ -18,10 +18,10 @@
 - (void)loadView{
     [super loadView];
     self.themeView = [[ActivityThemeView alloc] initWithFrame:self.view.frame];
-    self.tabBarController.tabBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
     
     [self.view addSubview:self.themeView];
-//    [self getModel];
+    [self getModel];
 }
 
 - (void)viewDidLoad {

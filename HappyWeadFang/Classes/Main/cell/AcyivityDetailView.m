@@ -39,7 +39,7 @@
 
 -(void)awakeFromNib{
     
-    self.mainScrollView.contentSize = CGSizeMake(ScreenWidth, 5000);
+    self.mainScrollView.contentSize = CGSizeMake(ScreenWidth, 4000);
     
     
 //    [self addSubview:self.mainScrollView];
@@ -76,10 +76,10 @@
         //每一段活动信息
         CGFloat height = [HWTools getTextHeightWithBigestSize:dic[@"description"] BigestSize:CGSizeMake(ScreenWidth, 1000) textFont:15.0];
         CGFloat y;
-        if (_PreviousImageHeight > 500) { //如果图片底部的高度没有值（也就是小于500）,也就说明是加载第一个lable，那么y的值不应该减去500
-            y = 500 + _PreviousImageHeight - 500;
+        if (_PreviousImageHeight > 385) { //如果图片底部的高度没有值（也就是小于500）,也就说明是加载第一个lable，那么y的值不应该减去500
+            y = 385 + _PreviousImageHeight - 385;
         } else {
-            y = 500 + _PreviousImageHeight;
+            y = 385 + _PreviousImageHeight;
         }
         NSString *title = dic[@"title"];
         if (title != nil) {
@@ -95,9 +95,8 @@
         label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:15.0];
         [self.mainScrollView addSubview:label];
-        //保留最后一个label的高度，+ 64是下边tabbar的高度
-        _PreviousImageHight = label.bottom + 10 + 64;
-        
+
+        _PreviousImageHight = label.bottom +10;
         NSArray *urlsArray = dic[@"urls"];
         if (urlsArray == nil) { //当某一个段落中没有图片的时候，上次图片的高度用上次label的底部高度+10
             _PreviousImageHeight = label.bottom + 10;
@@ -134,6 +133,8 @@
                 }
             }
         }
+        //保留最后一个label的高度(就是scrollView)，+ 30是下边tabbar的高度
+        _PreviousImageHight = label.bottom > _PreviousImageHeight? label.bottom+70:_PreviousImageHeight+70;
     }
 }
 

@@ -123,8 +123,11 @@
                 if (urlsArray.count > 1) {
                     lastImgbottom = imageView.bottom;
                 }
+ 
             }
         }
+        //保留最后一个label的高度(就是scrollView)，+ 30是下边tabbar的高度
+        _lastLabelBottom = label.bottom > _previousImageBottom? label.bottom+ 70:_previousImageBottom + 70;
     }
 }
 
