@@ -115,7 +115,6 @@
                 CGFloat width = [urlDic[@"width"] integerValue];
                 CGFloat imageHeight = [urlDic[@"height"] integerValue];
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, imgY, ScreenWidth - 20, (ScreenWidth - 20)/width * imageHeight)];
-                imageView.backgroundColor = [UIColor redColor];
                 [imageView sd_setImageWithURL:[NSURL URLWithString:urlDic[@"url"]] placeholderImage:nil];
                 [self.scrollView addSubview:imageView];
                 //每次都保留最新的图片底部高度
@@ -129,6 +128,8 @@
         //保留最后一个label的高度(就是scrollView)，+ 30是下边tabbar的高度
         _lastLabelBottom = label.bottom > _previousImageBottom? label.bottom+ 70:_previousImageBottom + 70;
     }
+    self.scrollView.contentSize = CGSizeMake(ScreenWidth, _lastLabelBottom + 20);
+    
 }
 
 

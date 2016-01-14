@@ -50,6 +50,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.barTintColor = kColor;
+    
     //设置北京
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction)];
     self.navigationItem.leftBarButtonItem = leftBtn;
@@ -66,11 +68,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
     //请求数据
-//    [self getModel];
+    [self getModel];
     [self startTimer];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self viewDidAppear:YES];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
 #pragma mark ****----- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
@@ -223,8 +229,6 @@
     if (_pageC == nil) {
         //创建小圆点
         self.pageC = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 186 -30, ScreenWidth, 30)];
-//        self.pageC.backgroundColor = [UIColor redColor];
-        
         self.pageC.currentPageIndicatorTintColor = [UIColor cyanColor];
         
         [self.pageC addTarget:self action:@selector(pageAction:) forControlEvents:UIControlEventValueChanged];

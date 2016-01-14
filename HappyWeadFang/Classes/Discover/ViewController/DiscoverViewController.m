@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
     
-
+    self.navigationController.navigationBar.barTintColor = kColor;
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
     [self.tableView launchRefreshing];
@@ -49,7 +49,7 @@
 #pragma mark ------------------- 懒加载
 -(PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 45, ScreenWidth, ScreenHeight ) pullingDelegate:self];
+        self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 52, ScreenWidth, ScreenHeight ) pullingDelegate:self];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [self.tableView setHeaderOnly:YES];

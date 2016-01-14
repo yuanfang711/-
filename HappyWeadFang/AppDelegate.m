@@ -10,10 +10,10 @@
 #import "MainViewController.h"
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
+#import "WeiboSDK.h"
 
-
-@interface AppDelegate ()
-
+@interface AppDelegate ()<WeiboSDKDelegate>
+@property(nonatomic, strong) WBMessageObject *messageToshare;
 @end
 
 @implementation AppDelegate
@@ -22,7 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:KAppkey];
     
+        
     //UITabBar
     self.tabbarC = [[UITabBarController alloc] init];
     
@@ -67,7 +70,30 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+  
 }
+#pragma mark ------------ 微博
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+}
+
+#pragma mark ---------- Share Weibo
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+    
+}
+
+
+#pragma mark ------------ 请求openAPI
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

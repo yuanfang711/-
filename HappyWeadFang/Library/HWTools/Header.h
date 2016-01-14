@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 #ifndef Header_h
 #define Header_h
 
-
+#define kColor [UIColor colorWithRed:96.0/255.0 green:185.0/255.0 blue:191.0/255.0 alpha:1.0]
 
 
 //将所有的接口都放到header中定义
@@ -43,6 +43,9 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 //发现接口
 #define kDiscover @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
 
-//
+//新浪微博分享
+#define KAppkey  @"4041993732"
+#define KAppSecret @"ae76250cee9bbea1780caad271bc8ac"
+#define KRedirectURI @"https://api.weibo.com/oauth2/default.html"
 
 #endif /* Header_h */

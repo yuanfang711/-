@@ -40,7 +40,7 @@
     AFHTTPSessionManager *semanage = [[AFHTTPSessionManager alloc] init];
     semanage.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [semanage GET:[NSString stringWithFormat:@"%@&page=%lu",kGoodActivity,_pageCount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        FFFLog(@"%@",downloadProgress);
+//        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic  = responseObject;
         NSString *status = dic[@"status"];

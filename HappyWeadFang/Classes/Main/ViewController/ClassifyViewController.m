@@ -114,7 +114,7 @@
     [ProgressHUD show:@"拼命加载中…"];
     //请求
     [session GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassActivity,_pageCount,@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        FFFLog(@"%@",downloadProgress);
+//        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"加载成功！"];
         NSDictionary *dic  = responseObject;
@@ -147,7 +147,7 @@
     [ProgressHUD show:@"数据加载中…"];
     //请求
     [session GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassActivity,_pageCount,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        FFFLog(@"%@",downloadProgress);
+//        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"数据加载成功"];
         NSDictionary *dic  = responseObject;
@@ -180,7 +180,7 @@
     [ProgressHUD show:@"数据加载中…"];
     //四个请求
     [session GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassActivity,_pageCount,@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        FFFLog(@"%@",downloadProgress);
+//        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"数据成功"];
         NSDictionary *dic  = responseObject;
@@ -213,7 +213,7 @@
     [ProgressHUD show:@"数据加载中…"];
     //请求
     [session GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassActivity,_pageCount,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        FFFLog(@"%@",downloadProgress);
+//        FFFLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"加载成功！"];
         NSDictionary *dic  = responseObject;
