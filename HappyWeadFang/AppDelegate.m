@@ -11,8 +11,10 @@
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
 #import "WeiboSDK.h"
+#import "WXApi.h"
 
-@interface AppDelegate ()<WeiboSDKDelegate>
+
+@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
 @property(nonatomic, strong) WBMessageObject *messageToshare;
 @end
 
@@ -74,9 +76,12 @@
 }
 #pragma mark ------------ 微博
 -(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
-    
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
 }
 -(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
     
 }
 

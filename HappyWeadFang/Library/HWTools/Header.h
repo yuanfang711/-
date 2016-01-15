@@ -48,4 +48,9 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 #define KAppSecret @"ae76250cee9bbea1780caad271bc8ac"
 #define KRedirectURI @"https://api.weibo.com/oauth2/default.html"
 
+//微信分享
+#define KWeiXinAppId  @"wx34291138bd3bb5af"
+#define KWeiXinAppSecret @"ba33483856ce55f7dbffb7f0d1a19940"
+
+
 #endif /* Header_h */

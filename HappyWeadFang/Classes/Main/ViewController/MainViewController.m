@@ -68,7 +68,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
     //请求数据
-    [self getModel];
+//    [self getModel];
     [self startTimer];
 }
 

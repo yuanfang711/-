@@ -44,15 +44,18 @@
 		7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */; };
 		7AA68F2C1C44FA6A00FF9624 /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA68F2A1C44FA6A00FF9624 /* DiscoverTableViewCell.m */; };
 		7AA68F2D1C44FA6A00FF9624 /* DiscoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA68F2B1C44FA6A00FF9624 /* DiscoverTableViewCell.xib */; };
-		7AA68F2F1C44FC5000FF9624 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA68F2E1C44FC5000FF9624 /* 2.png */; };
 		7AA68F641C450EDB00FF9624 /* Discover.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA68F631C450EDB00FF9624 /* Discover.plist */; };
 		7AA68F671C450F5600FF9624 /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA68F661C450F5600FF9624 /* DiscoverModel.m */; };
+		7AAE2E521C48CBFC005BA817 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAE2E4F1C48CBFC005BA817 /* libWeChatSDK.a */; };
+		7AAE2E541C48CD9F005BA817 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAE2E531C48CD9F005BA817 /* Images.xcassets */; };
 		7AB1328E1C3FBCC000192BEF /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1328D1C3FBCC000192BEF /* good.plist */; };
 		7AB132911C3FBE3600192BEF /* GoodActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB132901C3FBE3600192BEF /* GoodActivityModel.m */; };
 		7AB5F6791C43912700E88877 /* VOContentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6721C43912700E88877 /* VOContentLayer.m */; };
 		7AB5F67A1C43912700E88877 /* VOIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6741C43912700E88877 /* VOIndicatorAnimation.m */; };
 		7AB5F67B1C43912700E88877 /* VOSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6761C43912700E88877 /* VOSegment.m */; };
 		7AB5F67C1C43912700E88877 /* VOSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5F6781C43912700E88877 /* VOSegmentedControl.m */; };
+		7AB688DF1C47383900108A2F /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB688DE1C47383900108A2F /* ShareView.m */; };
+		7AB688E21C474DF200108A2F /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB688E11C474DF200108A2F /* ShareViewController.m */; };
 		7ADE9C5B1C462BF1007DDA8F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADE9C5A1C462BF1007DDA8F /* MessageUI.framework */; };
 		7ADE9C691C464F98007DDA8F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADE9C5D1C464F97007DDA8F /* libWeiboSDK.a */; };
 		7ADE9C6A1C464F98007DDA8F /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7ADE9C661C464F97007DDA8F /* WeiboSDK.bundle */; };
@@ -135,10 +138,13 @@
 		7AA68F291C44FA6A00FF9624 /* DiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewCell.h; sourceTree = "<group>"; };
 		7AA68F2A1C44FA6A00FF9624 /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
 		7AA68F2B1C44FA6A00FF9624 /* DiscoverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverTableViewCell.xib; sourceTree = "<group>"; };
-		7AA68F2E1C44FC5000FF9624 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = Classes/Discover/cell/2.png; sourceTree = "<group>"; };
 		7AA68F631C450EDB00FF9624 /* Discover.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Discover.plist; sourceTree = "<group>"; };
 		7AA68F651C450F5600FF9624 /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverModel.h; path = HappyWeadFang/Classes/Discover/Model/DiscoverModel.h; sourceTree = SOURCE_ROOT; };
 		7AA68F661C450F5600FF9624 /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverModel.m; path = HappyWeadFang/Classes/Discover/Model/DiscoverModel.m; sourceTree = SOURCE_ROOT; };
+		7AAE2E4F1C48CBFC005BA817 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		7AAE2E501C48CBFC005BA817 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		7AAE2E511C48CBFC005BA817 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		7AAE2E531C48CD9F005BA817 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7AB1328D1C3FBCC000192BEF /* good.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = good.plist; sourceTree = "<group>"; };
 		7AB1328F1C3FBE3600192BEF /* GoodActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityModel.h; sourceTree = "<group>"; };
 		7AB132901C3FBE3600192BEF /* GoodActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityModel.m; sourceTree = "<group>"; };
@@ -150,6 +156,10 @@
 		7AB5F6761C43912700E88877 /* VOSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegment.m; sourceTree = "<group>"; };
 		7AB5F6771C43912700E88877 /* VOSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSegmentedControl.h; sourceTree = "<group>"; };
 		7AB5F6781C43912700E88877 /* VOSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegmentedControl.m; sourceTree = "<group>"; };
+		7AB688DD1C47383900108A2F /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		7AB688DE1C47383900108A2F /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		7AB688E01C474DF200108A2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		7AB688E11C474DF200108A2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		7ADE9C5A1C462BF1007DDA8F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7ADE9C5D1C464F97007DDA8F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		7ADE9C5E1C464F97007DDA8F /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 				7ADE9C5B1C462BF1007DDA8F /* MessageUI.framework in Frameworks */,
 				7ADE9C691C464F98007DDA8F /* libWeiboSDK.a in Frameworks */,
 				F8E26E14DCE3581B2DD9E270 /* libPods.a in Frameworks */,
+				7AAE2E521C48CBFC005BA817 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +412,7 @@
 		7A19A1D21C3A4E6B0010BAB5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7AAE2E4E1C48CBFC005BA817 /* SDKExport */,
 				7ADE9C5C1C464F97007DDA8F /* libWeiboSDK */,
 				7A7A92691C449F170038C746 /* ProgressHUD */,
 				7AB5F6701C43912700E88877 /* VOSegmentedControl */,
@@ -459,7 +471,6 @@
 		7A8E9B6D1C3A1CD500D529C4 /* HappyWeadFang */ = {
 			isa = PBXGroup;
 			children = (
-				7AA68F2E1C44FC5000FF9624 /* 2.png */,
 				7A19A1BC1C3A4E300010BAB5 /* Classes */,
 				7A19A1D21C3A4E6B0010BAB5 /* Library */,
 				7AE08FAE1C3CAC7900D97B2B /* pch */,
@@ -469,6 +480,7 @@
 				7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */,
 				7A8E9B761C3A1CD500D529C4 /* LaunchScreen.storyboard */,
 				7A8E9B791C3A1CD500D529C4 /* Info.plist */,
+				7AAE2E531C48CD9F005BA817 /* Images.xcassets */,
 				7A8E9B6E1C3A1CD500D529C4 /* Supporting Files */,
 			);
 			path = HappyWeadFang;
@@ -480,6 +492,16 @@
 				7A8E9B6F1C3A1CD500D529C4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AAE2E4E1C48CBFC005BA817 /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				7AAE2E4F1C48CBFC005BA817 /* libWeChatSDK.a */,
+				7AAE2E501C48CBFC005BA817 /* WXApi.h */,
+				7AAE2E511C48CBFC005BA817 /* WXApiObject.h */,
+			);
+			path = SDKExport;
 			sourceTree = "<group>";
 		};
 		7AB5F6701C43912700E88877 /* VOSegmentedControl */ = {
@@ -534,6 +556,10 @@
 				7AE08FCD1C3D205500D97B2B /* UIViewController+Common.h */,
 				7AE08FCE1C3D205500D97B2B /* UIViewController+Common.m */,
 				7AE08FB21C3CB34800D97B2B /* Header.h */,
+				7AB688DD1C47383900108A2F /* ShareView.h */,
+				7AB688DE1C47383900108A2F /* ShareView.m */,
+				7AB688E01C474DF200108A2F /* ShareViewController.h */,
+				7AB688E11C474DF200108A2F /* ShareViewController.m */,
 			);
 			path = HWTools;
 			sourceTree = "<group>";
@@ -608,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA68F2D1C44FA6A00FF9624 /* DiscoverTableViewCell.xib in Resources */,
+				7AAE2E541C48CD9F005BA817 /* Images.xcassets in Resources */,
 				7A19A1D51C3A50680010BAB5 /* Main.storyboard in Resources */,
 				7A19A1D71C3A50900010BAB5 /* Discover.storyboard in Resources */,
 				7A3D71051C3F5817003B616E /* Activity.plist in Resources */,
@@ -616,7 +643,6 @@
 				7A19A1D91C3A50C30010BAB5 /* Mine.storyboard in Resources */,
 				7AB1328E1C3FBCC000192BEF /* good.plist in Resources */,
 				7A7900041C43A8440049133E /* typeid23.plist in Resources */,
-				7AA68F2F1C44FC5000FF9624 /* 2.png in Resources */,
 				7AA68F641C450EDB00FF9624 /* Discover.plist in Resources */,
 				7A3D71111C3F9A9C003B616E /* Main.plist in Resources */,
 				7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */,
@@ -701,6 +727,7 @@
 				7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */,
 				7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */,
 				7A19A1CF1C3A4E300010BAB5 /* DiscoverViewController.m in Sources */,
+				7AB688E21C474DF200108A2F /* ShareViewController.m in Sources */,
 				7AE08FBE1C3CBF4300D97B2B /* ThemeViewViewController.m in Sources */,
 				7AA68F671C450F5600FF9624 /* DiscoverModel.m in Sources */,
 				7AB5F67C1C43912700E88877 /* VOSegmentedControl.m in Sources */,
@@ -708,6 +735,7 @@
 				7A06D54A1C40DA32003039A8 /* GoodTableViewCell.m in Sources */,
 				7AE08FB81C3CBDC000D97B2B /* SearchViewController.m in Sources */,
 				7A3D710A1C3F5EC8003B616E /* ActivityThemeView.m in Sources */,
+				7AB688DF1C47383900108A2F /* ShareView.m in Sources */,
 				7A19A1D11C3A4E300010BAB5 /* MineViewController.m in Sources */,
 				7A8E9B701C3A1CD500D529C4 /* main.m in Sources */,
 				7A3D71191C3F9E82003B616E /* PullingRefreshTableView.m in Sources */,
@@ -821,6 +849,7 @@
 			baseConfigurationReference = B8D3842EB655D3CAF228A2C5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HappyWeadFang/pch/Prefix.pch";
 				INFOPLIST_FILE = HappyWeadFang/Info.plist;
@@ -829,6 +858,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HappyWeadFang/Library/libWeiboSDK",
+					"$(PROJECT_DIR)/HappyWeadFang/Library/SDKExport",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = MangoiOS.HappyWeadFang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -841,6 +871,7 @@
 			baseConfigurationReference = FF2496CD85BFA8D999F32832 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HappyWeadFang/pch/Prefix.pch";
 				INFOPLIST_FILE = HappyWeadFang/Info.plist;
@@ -849,6 +880,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HappyWeadFang/Library/libWeiboSDK",
+					"$(PROJECT_DIR)/HappyWeadFang/Library/SDKExport",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = MangoiOS.HappyWeadFang;
 				PRODUCT_NAME = "$(TARGET_NAME)";

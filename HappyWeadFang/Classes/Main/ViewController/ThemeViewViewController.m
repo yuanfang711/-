@@ -21,7 +21,7 @@
     self.tabBarController.tabBar.hidden = YES;
     
     [self.view addSubview:self.themeView];
-    [self getModel];
+//    [self getModel];
 }
 
 - (void)viewDidLoad {

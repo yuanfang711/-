@@ -41,7 +41,7 @@
     
     
     //网络请求
-    [self getModel];
+//    [self getModel];
 }
 #pragma mark ----------- 网络请求
 - (void)getModel{

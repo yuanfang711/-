@@ -36,7 +36,7 @@
     //标题
     self.title = @"活动专题";
     
-    [self loadData];
+//    [self loadData];
     
     //返回按钮
     [self showBackButton];

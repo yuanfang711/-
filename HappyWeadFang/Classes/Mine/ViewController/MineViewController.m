@@ -12,15 +12,20 @@
 #import "ProgressHUD.h"
 #import "WeiboSDK.h"
 #import "AppDelegate.h"
+#import "ShareView.h"
 
-@interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,WBHttpRequestDelegate>
-@property(nonatomic, strong) UITableView *tableView;
-@property(nonatomic, strong) UIButton *headViewButt;
-@property(nonatomic, strong) NSMutableArray *titleArr;
-@property(nonatomic, strong) NSArray *imageArr;
-@property(nonatomic, strong) UILabel *nicheng;
+@interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,WeiboSDKDelegate>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIButton *headViewButt;
+@property (nonatomic, strong) NSMutableArray *titleArr;
+@property (nonatomic, strong) NSArray *imageArr;
+@property (nonatomic, strong) UILabel *nicheng;
 
-@property(nonatomic, strong ) WBMessageObject *messageToshare;
+@property (nonatomic, strong ) WBMessageObject *messageToshare;
+
+
+@property (nonatomic, strong) UIView *blackView;
+@property (nonatomic, strong) UIView *shareView;
 @end
 
 @implementation MineViewController
@@ -30,28 +35,46 @@
     // Do any additional setup after loading the view.
     self.titleArr = [[NSMutableArray alloc] initWithObjects:@"清除缓存",@"用户反馈",@"分享给好友",@"给我评分",@"当前版本 1.0", nil];
     self.imageArr = @[@"icon_order.png",@"icon_msg.png",@"icon_ele.png",@"icon_like.png",@"icon_ac.png"];
+    
+    self.tableView.separatorColor = [UIColor grayColor];
+    
     //设置导航栏的颜色
     self.navigationController.navigationBar.barTintColor = kColor;
     [self.view addSubview:self.tableView];
     //调用设置区头的方法
     [self setUpHeadView];
+    
 }
 
 //当xiew出现时调用此方法
 -(void)viewWillAppear:(BOOL)animated{
     //大小
     SDImageCache *chche = [SDImageCache sharedImageCache];
+    
     NSUInteger chachesize = [chche getSize];
-    NSString *cache = [NSString stringWithFormat:@"缓存大小(%.2fM)",(float)chachesize/1024/1204];
-    [self.titleArr replaceObjectAtIndex:0 withObject:cache];
+    
+    NSString *cacheStr = [NSString stringWithFormat:@"清除缓存(%.2fM)",(float)chachesize/1024/1204];
+    //使用替换，不能用插入，替换得出新写的数据。插入使原有的数组的个数多一个
+    [self.titleArr replaceObjectAtIndex:0 withObject:cacheStr];
+    //cell的位置；
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
     //刷新单行的cell
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+    [super viewWillAppear:animated];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark ------------- UITableViewDataSource,UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.titleArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,8 +97,7 @@
             SDImageCache *image = [SDImageCache sharedImageCache];
             //调用方法，清除所有一起拿存储的图片
             [image clearDisk];
-            [self.titleArr insertObject:[NSString stringWithFormat:@"清除缓存(%.0fM)",(float)[image getSize]] atIndex:0];
-            
+            [self.titleArr replaceObjectAtIndex:0 withObject:[NSString stringWithFormat:@"清除缓存(%.0fM)",(float)[image getSize]]];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             //刷新单行的cell
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -87,6 +109,7 @@
         case 2:{
             //分享
             [self share];
+//            [self shareView];
         } break;
         case 3:{
             NSString *str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app"];
@@ -100,55 +123,81 @@
             break;
     }
 }
-#pragma mark ********************  分享给好友的点击方法：分享界面
+#pragma mark ******************** 分享小041界面
 -(void)share{
     UIWindow *sharewindow = [[UIApplication sharedApplication].delegate window];
+    self.blackView = [[UIView alloc] initWithFrame:self.view.frame];
+    self.blackView.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.5];
+    [sharewindow addSubview:self.blackView];
+    self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight, ScreenWidth, 250)];
+    self.shareView.backgroundColor = [UIColor whiteColor];
+    [self.blackView addSubview:self.shareView];
+    //微博
+    UIButton *weibobutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    weibobutton.frame = CGRectMake(20, 20, 70, 70);
+    [weibobutton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_login_button_with_frame_logo_focused"] forState:UIControlStateNormal];
+    [weibobutton addTarget:self action:@selector(getWeiBoShare) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *share = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 150, ScreenWidth, 150)];
-    share.backgroundColor = [UIColor cyanColor];
-    [sharewindow addSubview:share];
-    [UIView animateWithDuration:1.0 animations:^{
-        //微博
-        UIButton *weibobutton = [UIButton buttonWithType:UIButtonTypeCustom];
-        weibobutton.frame = CGRectMake(20, 30, 70, 70);
-        [weibobutton setImage:[UIImage imageNamed:@"sina_login_ic"] forState:UIControlStateNormal];
-        [weibobutton addTarget:self action:@selector(getWeiBoShare) forControlEvents:UIControlEventTouchUpInside];
-        [share addSubview:weibobutton];
-        
-        //微信朋友
-        UIButton *friendbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-        friendbutton.frame = CGRectMake(130, 30, 70, 70);
-        [friendbutton setImage:[UIImage imageNamed:@"icon_pay_weixin"] forState:UIControlStateNormal];
-        [friendbutton addTarget:self action:@selector(getFriendShare) forControlEvents:UIControlEventTouchUpInside];
-        [share addSubview:friendbutton];
-        //朋友圈
-        UIButton *circlebutton = [UIButton buttonWithType:UIButtonTypeCustom];
-        circlebutton.frame = CGRectMake(240, 30, 70, 70);
-        [circlebutton setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
-        [circlebutton addTarget:self action:@selector(getCircleShare) forControlEvents:UIControlEventTouchUpInside];
-        [share addSubview:circlebutton];
-        
-        //清除
-        UIButton *removebutton = [UIButton buttonWithType:UIButtonTypeCustom];
-        removebutton.frame = CGRectMake(20, 100, ScreenWidth - 40, 44);
-        [removebutton setTitle:@"取消" forState:UIControlStateNormal];
-        [removebutton addTarget:self action:@selector(getBack) forControlEvents:UIControlEventTouchUpInside];
-        [share addSubview:removebutton];
+    UILabel *weiboL = [[UILabel alloc] initWithFrame:CGRectMake(20, 90, 70, 10)];
+    weiboL.text = @"微博分享";
+    weiboL.textAlignment = NSTextAlignmentCenter;
+    [self.shareView addSubview:weiboL];
+    [self.shareView addSubview:weibobutton];
+    
+    //微信朋友
+    UIButton *friendbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    friendbutton.frame = CGRectMake(130, 20, 70, 70);
+    [friendbutton setImage:[UIImage imageNamed:@"icon_pay_weixin"] forState:UIControlStateNormal];
+    [friendbutton addTarget:self action:@selector(getFriendShare) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *weixinL = [[UILabel alloc] initWithFrame:CGRectMake(130, 90, 70, 10)];
+    weixinL.text = @"微信好友";
+    weixinL.textAlignment = NSTextAlignmentCenter;
+    [self.shareView addSubview:weixinL];
+    [self.shareView addSubview:friendbutton];
+    //朋友圈
+    UIButton *circlebutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    circlebutton.frame = CGRectMake(250, 20, 70, 70);
+    [circlebutton setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
+    [circlebutton addTarget:self action:@selector(getCircleShare) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *circleL = [[UILabel alloc] initWithFrame:CGRectMake(240, 90, 90, 10)];
+    circleL.text = @"朋友圈分享";
+    [self.shareView addSubview:circleL];
+    [self.shareView addSubview:circlebutton];
+    
+    //清除
+    UIButton *removebutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    removebutton.frame = CGRectMake(30, 120, ScreenWidth - 60, 30);
+    removebutton.backgroundColor = [UIColor brownColor];
+    [removebutton setTitle:@"取消" forState:UIControlStateNormal];
+    [removebutton addTarget:self action:@selector(getBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareView addSubview:removebutton];
+
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.blackView.alpha = 0.6;
+        self.shareView.frame =CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+        self.tabBarController.tabBar.hidden = YES;
     }];
+    
 }
 
 - (WBMessageObject *)messageToshare{
     WBMessageObject *message = [WBMessageObject message];
-    message.text = @"测试使用";
+    message.text = @"此内容由嗨皮周末测试使用分享";
     return message;
 }
 
 //微博分享
 - (void)getWeiBoShare{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = KRedirectURI;
     authRequest.scope = @"all";
+//    authRequest.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController"};
+    
+    
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToshare] authInfo:authRequest access_token:myDelegate.wbtoken];
     request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
                          @"Other_Info_1": [NSNumber numberWithInt:123],
@@ -156,7 +205,13 @@
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
     [WeiboSDK sendRequest:request];
+    [self getBack];
 }
+//回调信息
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    NSLog(@"%@",response);
+}
+
 - (void)getFriendShare{
     
 }
@@ -164,7 +219,11 @@
     
 }
 - (void)getBack{
-//    [];
+    [UIView animateWithDuration:1.0 animations:^{
+        [self.shareView removeFromSuperview];
+        [self.blackView removeFromSuperview];
+        self.tabBarController.tabBar.hidden = NO;
+    }];
 }
 
 #pragma mark *************** 版本信息的点击方法
@@ -175,7 +234,7 @@
 #pragma mark **************  tableview的懒加载
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 210, ScreenWidth, ScreenHeight - 64 -44) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 210, ScreenWidth, ScreenHeight/2 - 110) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
     }
