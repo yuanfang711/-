@@ -20,7 +20,6 @@
 #import "HotActivityViewController.h"
 
 
-
 @interface MainViewController ()<UISearchControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //全部数据
@@ -68,7 +67,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
     //请求数据
-//    [self getModel];
+    [self getModel];
     [self startTimer];
 }
 
@@ -146,8 +145,11 @@
 #pragma mark ************   选择城市
 - (void)selectCityAction{
     SelectViewController *select = [[SelectViewController alloc] init];
-    [self.navigationController presentViewController:select animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:select];
+
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
+
 
 #pragma mark ----------------  搜索关键字
 - (void)selectWord{

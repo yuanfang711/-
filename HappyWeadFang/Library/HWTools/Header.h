@@ -15,12 +15,10 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
     ClassifyListTypeFamilyTravel,       //亲子旅游
 };
 
-
 #ifndef Header_h
 #define Header_h
 
 #define kColor [UIColor colorWithRed:96.0/255.0 green:185.0/255.0 blue:191.0/255.0 alpha:1.0]
-
 
 //将所有的接口都放到header中定义
 //主页接口
@@ -51,6 +49,6 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 //微信分享
 #define KWeiXinAppId  @"wx34291138bd3bb5af"
 #define KWeiXinAppSecret @"ba33483856ce55f7dbffb7f0d1a19940"
-
+#define KBmobAppkey     @"cf6870ee91d7e6b5fd6359d3c596487b"
 
 #endif /* Header_h */

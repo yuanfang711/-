@@ -13,6 +13,7 @@
 #import "WeiboSDK.h"
 #import "AppDelegate.h"
 #import "ShareView.h"
+#import "LogininViewController.h"
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,WeiboSDKDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -296,6 +297,7 @@
     self.headViewButt = [UIButton buttonWithType:UIButtonTypeCustom];
     self.headViewButt.frame = CGRectMake(30, 30, 130, 130);
     [self.headViewButt setTitle:@"登录/注册" forState:UIControlStateNormal];
+    [self.headViewButt addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.headViewButt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.headViewButt setBackgroundColor:[UIColor whiteColor]];
     self.headViewButt.layer.cornerRadius = 65;
@@ -306,6 +308,15 @@
     [headview addSubview:self.nicheng];
     [headview addSubview:self.headViewButt];
     [self.view addSubview:headview];
+}
+
+
+
+- (void)login{
+    UIStoryboard *striu = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    LogininViewController *loginVC = [striu instantiateViewControllerWithIdentifier:@"loginVC"];
+    [self.navigationController pushViewController:loginVC animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

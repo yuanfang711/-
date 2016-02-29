@@ -12,9 +12,17 @@
 #import "MineViewController.h"
 #import "WeiboSDK.h"
 #import "WXApi.h"
+#import <BmobSDK/Bmob.h>
+#import <CoreLocation/CoreLocation.h>   //1  引入框架
 
-
-@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
+@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate,CLLocationManagerDelegate>{
+    //全局变量 2  创建所需要的实例对象
+    CLLocationManager *_locationManager;
+    
+    
+    //一、创建地理编码对象
+    CLGeocoder *_geocoder;
+}
 @property(nonatomic, strong) WBMessageObject *messageToshare;
 @end
 
@@ -24,10 +32,51 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //3 初始化定位的对象
+    _locationManager = [[CLLocationManager alloc] init];
+    
+    //4 判断是否打开定位
+    if (![CLLocationManager locationServicesEnabled]) {
+        FFFLog(@"用户位置服务不用！");
+    }
+    
+    //5 判断是否授权:没有则请求用户授权
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        //当用户在使用时，打开
+        [_locationManager requestWhenInUseAuthorization];
+    }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse){
+        //设置代理,在上面引入代理
+        _locationManager.delegate = self;
+        //设置定位精度:定位精度越精确，越是耗电量
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        //定位频率：每个多少米定位一次
+        CLLocationDistance distance = 10.0;
+        _locationManager.distanceFilter = distance;
+        //启动跟踪定位
+        [_locationManager startUpdatingLocation];
+    }
+    
+    
+    
+    //二、初始化地理编码对象
+    _geocoder = [[CLGeocoder alloc] init];
+    
+
+    
+    
+    //微博
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:KAppkey];
     
-        
+    //微信
+    [WXApi registerApp:KWeiXinAppSecret];
+    
+    //BMOB
+    [Bmob registerWithAppKey:KBmobAppkey];
+    
+    
+    
     //UITabBar
     self.tabbarC = [[UITabBarController alloc] init];
     
@@ -74,6 +123,31 @@
     return YES;
   
 }
+#pragma mark ------------ 定位协议代理
+/*
+ 方法：
+ manager      ：当前使用的定位对象
+ CLLocation   ：返回定位的数据，是一个数组对象，里边是CLLocation类型
+ */
+//6
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+//    FFFLog(@"%@",locations);
+    //7  从数组中取出一个定位信息
+    CLLocation *location = [locations lastObject];
+    //从location中取出坐标 CLLocationCoordinate2D 坐标系，里边包含经度和纬度
+    CLLocationCoordinate2D coordinate = location.coordinate;
+    FFFLog(@"维度：%.6f  经度：%.6f 海拔：%.2f  航向：%.2f  行走速度：%.2f ",coordinate.latitude,coordinate.longitude,location.altitude,location.course,    location.speed);
+    
+    //三、在获取到用户位置（经纬度）后，通过逆地理编码将经纬度转化为实际的地名、街道等信息
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *placemark = [placemarks firstObject];
+        NSString *city = placemark.addressDictionary[@"City"];
+        FFFLog(@"%@",placemark.addressDictionary);
+    }];
+    //如果不需要使用定位服务的时候，请及时关闭定位
+    [_locationManager stopUpdatingLocation];
+}
+
 #pragma mark ------------ 微博
 -(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];

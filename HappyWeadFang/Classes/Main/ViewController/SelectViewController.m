@@ -19,8 +19,12 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor redColor];
-    
-    
+    self.title = @"切换城市";
+    self.navigationController.navigationBar.barTintColor = kColor;
+    [self showBackButton];
+}
+-(void)backButtonActton:(UIButton *)button{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

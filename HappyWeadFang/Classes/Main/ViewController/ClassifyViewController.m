@@ -38,6 +38,7 @@
     [self showBackButton];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.vosC];
+    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -48,8 +49,12 @@
     [self getFamilyModel];
     _pageCount = 1;
     
+    //
+    [self.tableView launchRefreshing];
+    
     //选择是哪个请求
     [self chooseResques];
+    
 }
 //在页面将要消失的时候，调用此方法，去掉所有的
 -(void)viewWillDisappear:(BOOL)animated{
