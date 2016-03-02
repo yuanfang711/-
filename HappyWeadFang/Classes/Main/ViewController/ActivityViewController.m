@@ -29,7 +29,7 @@
 //    self.scrollV.backgroundColor = [UIColor cyanColor];
     self.title = @"活动详情";
 
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     
     
     //隐藏TabBar

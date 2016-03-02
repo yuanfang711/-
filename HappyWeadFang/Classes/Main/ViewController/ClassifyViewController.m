@@ -35,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"分类列表";
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.vosC];
     

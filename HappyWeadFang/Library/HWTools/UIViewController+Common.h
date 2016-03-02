@@ -11,6 +11,6 @@
 @interface UIViewController (Common)
 
 //添加返回按钮
-- (void)showBackButton;
+- (void)showBackButtonWithImage:(NSString *)imageName;
 
 @end

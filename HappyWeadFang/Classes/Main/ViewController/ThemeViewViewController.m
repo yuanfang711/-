@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //返回图标
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
 }
 
 - (void)getModel{

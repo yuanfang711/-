@@ -41,7 +41,12 @@
 
 @property(nonatomic, strong) UIButton *activityBtn;
 @property(nonatomic, strong) UIButton *themeBtn;
-
+//城市名字
+@property(nonatomic, strong) NSString *cityName;
+//城市按钮
+@property(nonatomic, strong) UIButton *cityButton;
+//城市ID
+@property(nonatomic, strong) NSString *cityID;
 @end
 
 @implementation MainViewController
@@ -52,9 +57,18 @@
     self.navigationController.navigationBar.barTintColor = kColor;
     
     //设置北京
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction)];
+    self.cityButton  = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.cityButton.frame = CGRectMake(0, 0, 60, 44);
+    [self.cityButton setImage:[UIImage imageNamed:@"btn_chengshi.png"] forState:UIControlStateNormal];
+    [self.cityButton setTitle:@"北京" forState:UIControlStateNormal];
+    [self.cityButton addTarget:self action:@selector(selectCityAction) forControlEvents:UIControlEventTouchUpInside];
+    //调整button标题的位置：距离button上、下、左右边界的距离
+    [self.cityButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 10)];
+    //调整button图片所在的位置
+    [self.cityButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.cityButton.frame.size.width - 25, 0, 0)];
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithCustomView:self.cityButton];
+//    leftBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftBtn;
-    leftBtn.tintColor = [UIColor whiteColor];
     
     //搜索按钮
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -70,6 +84,7 @@
     [self getModel];
     [self startTimer];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [self viewDidAppear:YES];
@@ -145,6 +160,9 @@
 #pragma mark ************   选择城市
 - (void)selectCityAction{
     SelectViewController *select = [[SelectViewController alloc] init];
+    
+    select.cityDelegate=self;
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:select];
 
     [self.navigationController presentViewController:nav animated:YES completion:nil];
@@ -445,6 +463,12 @@
     //3、让scrollview滚动到第几页
     self.scrollV.contentOffset = CGPointMake(num * pagef, 0);
     
+}
+
+//回传值代理
+- (void)getCityBack:(NSString *)name WithCityID:(NSString *)cityID{
+    self.cityID = cityID;
+    [self.cityButton setTitle:name forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

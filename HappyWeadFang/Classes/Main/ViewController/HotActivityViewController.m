@@ -39,7 +39,7 @@
 //    [self loadData];
     
     //返回按钮
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     [self.view addSubview:self.tableView];
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HotTableViewCell" bundle:nil] forCellReuseIdentifier:@"hotcell"];

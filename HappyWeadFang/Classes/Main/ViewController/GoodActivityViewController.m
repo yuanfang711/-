@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     self.title = @"精选活动";
     //返回主页的按钮
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     [self.view addSubview:self.tableView];
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];

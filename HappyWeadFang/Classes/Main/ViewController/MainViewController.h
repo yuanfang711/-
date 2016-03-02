@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "SelectViewController.h"
+@interface MainViewController : UIViewController<CityBackNameDelegate, UITableViewDataSource,UITableViewDelegate>
 
 
 @end

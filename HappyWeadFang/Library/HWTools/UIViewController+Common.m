@@ -10,16 +10,17 @@
 
 @implementation UIViewController (Common)
 
-- (void)showBackButton{
+- (void)showBackButtonWithImage:(NSString *)imageName{
     UIButton *button = [UIButton buttonWithType: UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 44, 44);
     [button addTarget:self action:@selector(backButtonActton:) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = left;
 
 }
+
 
 -(void)backButtonActton:(UIButton *)button{
     [self.navigationController popViewControllerAnimated:YES];

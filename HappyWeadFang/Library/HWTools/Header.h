@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 //将所有的接口都放到header中定义
 //主页接口
-#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=1&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1"
+#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=141&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1"
 
 //活动详情接口
 #define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&lat=34.61356779156581&lng=112.4141403843618"
@@ -40,6 +40,10 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 #define kClassActivity @"http://e.kumi.cn/app/v1.3/catelist.php?_s_=dad924a9b9cd534b53fc2c521e9f8e84&_t_=1452495193&channelid=appstore&cityid=1&lat=34.61356398594803&limit=30&lng=112.4140434532402"
 //发现接口
 #define kDiscover @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
+
+//发现接口
+#define kCity @"http://e.kumi.cn/app/citylist.php?_s_=7afdcf70cf8f62146f2387946b4bf4e0&_t_=1456798700&channelid=appstore&cityid=1316&lat=34.61346589895142&lng=112.4140820306375"
+
 
 //新浪微博分享
 #define KAppkey  @"4041993732"
