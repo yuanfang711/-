@@ -39,6 +39,7 @@
 		7A8E9B731C3A1CD500D529C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E9B721C3A1CD500D529C4 /* AppDelegate.m */; };
 		7A8E9B751C3A1CD500D529C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */; };
 		7A8E9B781C3A1CD500D529C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E9B761C3A1CD500D529C4 /* LaunchScreen.storyboard */; };
+		7A9A865D1C86F27200552E93 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A865C1C86F27200552E93 /* RegisterViewController.m */; };
 		7A9AB2421C3E10DB00BD1D1B /* AcyivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB2411C3E10DB00BD1D1B /* AcyivityDetailView.m */; };
 		7A9AB27D1C3E4C5300BD1D1B /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27C1C3E4C5300BD1D1B /* HWTools.m */; };
 		7A9AB2801C3E5B0B00BD1D1B /* UIView+Estension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */; };
@@ -142,6 +143,8 @@
 		7A8E9B741C3A1CD500D529C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A8E9B771C3A1CD500D529C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8E9B791C3A1CD500D529C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A9A865B1C86F27200552E93 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		7A9A865C1C86F27200552E93 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7A9AB2401C3E10DB00BD1D1B /* AcyivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcyivityDetailView.h; sourceTree = "<group>"; };
 		7A9AB2411C3E10DB00BD1D1B /* AcyivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcyivityDetailView.m; sourceTree = "<group>"; };
 		7A9AB27B1C3E4C5300BD1D1B /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
@@ -584,6 +587,8 @@
 			children = (
 				7AAE2E691C48ED25005BA817 /* LogininViewController.h */,
 				7AAE2E6A1C48ED25005BA817 /* LogininViewController.m */,
+				7A9A865B1C86F27200552E93 /* RegisterViewController.h */,
+				7A9A865C1C86F27200552E93 /* RegisterViewController.m */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -634,13 +639,13 @@
 		7AE08FB11C3CB34800D97B2B /* HWTools */ = {
 			isa = PBXGroup;
 			children = (
+				7AE08FB21C3CB34800D97B2B /* Header.h */,
 				7A9AB27E1C3E5B0B00BD1D1B /* UIView+Estension.h */,
 				7A9AB27F1C3E5B0B00BD1D1B /* UIView+Estension.m */,
 				7A9AB27B1C3E4C5300BD1D1B /* HWTools.h */,
 				7A9AB27C1C3E4C5300BD1D1B /* HWTools.m */,
 				7AE08FCD1C3D205500D97B2B /* UIViewController+Common.h */,
 				7AE08FCE1C3D205500D97B2B /* UIViewController+Common.m */,
-				7AE08FB21C3CB34800D97B2B /* Header.h */,
 				7AB688DD1C47383900108A2F /* ShareView.h */,
 				7AB688DE1C47383900108A2F /* ShareView.m */,
 				7AB688E01C474DF200108A2F /* ShareViewController.h */,
@@ -833,6 +838,7 @@
 				7AC04AB11C858DE100C07B57 /* HeadCollectionView.m in Sources */,
 				7A792C391C4218900059C918 /* HotTableViewCell.m in Sources */,
 				7A19A1D01C3A4E300010BAB5 /* MainViewController.m in Sources */,
+				7A9A865D1C86F27200552E93 /* RegisterViewController.m in Sources */,
 				7A39F51C1C3BA06800961839 /* MainModel.m in Sources */,
 				7AE08FCF1C3D205500D97B2B /* UIViewController+Common.m in Sources */,
 				7AE08FBB1C3CBE7000D97B2B /* ActivityViewController.m in Sources */,

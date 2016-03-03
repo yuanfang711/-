@@ -28,16 +28,6 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXG-hW-AjQ">
-                            <rect key="frame" x="272" y="51" width="74" height="30"/>
-                            <color key="backgroundColor" red="0.37647058820000001" green="0.72549019609999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="重新定位">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="geoCityButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="HFu-aB-FHl"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  当前定位城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-Jf-8fT">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +35,13 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXG-hW-AjQ">
+                            <rect key="frame" x="271" y="51" width="74" height="30"/>
+                            <color key="backgroundColor" red="0.37647058820000001" green="0.72549019609999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="重新定位">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -52,9 +49,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
-                <outlet property="cityLable" destination="VJk-d1-IIU" id="DvP-qc-RE2"/>
+                <outlet property="cityLable" destination="VJk-d1-IIU" id="3jy-0a-5Ic"/>
+                <outlet property="reLocationButton" destination="AXG-hW-AjQ" id="TGO-P9-AIQ"/>
             </connections>
-            <point key="canvasLocation" x="410.5" y="367.5"/>
+            <point key="canvasLocation" x="437.5" y="240.5"/>
         </view>
     </objects>
 </document>

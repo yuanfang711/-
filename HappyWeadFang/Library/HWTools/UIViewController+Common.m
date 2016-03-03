@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+Common.h"
+#import "RegisterViewController.h"
 
 @implementation UIViewController (Common)
 
@@ -24,6 +25,21 @@
 
 -(void)backButtonActton:(UIButton *)button{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)showRightButtonWithTitle:(NSString *)title{
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    rightBtn.frame = CGRectMake(0, 0, 64, 44);
+    [rightBtn setTitle:@"注册" forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(selectWord) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBtnu = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightBtnu;
+}
+- (void)selectWord{
+    RegisterViewController *searchVC =[[RegisterViewController alloc ]init];
+    
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 @end

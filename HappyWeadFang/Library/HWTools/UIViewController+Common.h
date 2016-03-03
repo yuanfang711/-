@@ -12,5 +12,5 @@
 
 //添加返回按钮
 - (void)showBackButtonWithImage:(NSString *)imageName;
-
+- (void)showRightButtonWithTitle:(NSString *)title;
 @end

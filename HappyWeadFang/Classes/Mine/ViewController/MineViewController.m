@@ -302,23 +302,19 @@
     [self.headViewButt setBackgroundColor:[UIColor whiteColor]];
     self.headViewButt.layer.cornerRadius = 65;
     self.headViewButt.clipsToBounds = YES;
-    self.nicheng = [[UILabel alloc] initWithFrame:CGRectMake(165, 80, ScreenWidth - 180, 40)];
+    self.nicheng = [[UILabel alloc] initWithFrame:CGRectMake(168, 80, ScreenWidth - 180, 40)];
     self.nicheng.text = @"欢迎进入嗨皮周末！！！";
     self.nicheng.textColor = [UIColor whiteColor];
     [headview addSubview:self.nicheng];
     [headview addSubview:self.headViewButt];
     [self.view addSubview:headview];
 }
-
-
-
 - (void)login{
     UIStoryboard *striu = [UIStoryboard storyboardWithName:@"login" bundle:nil];
     LogininViewController *loginVC = [striu instantiateViewControllerWithIdentifier:@"loginVC"];
     [self.navigationController pushViewController:loginVC animated:YES];
 
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

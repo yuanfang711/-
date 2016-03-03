@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @protocol CityBackNameDelegate <NSObject>
-
-- (void)getCityBack:(NSString *)name WithCityID:(NSString *)cityID;
-
+//block传值
+//- (void)getCityBackWithArray:(NSArray *)cityA Name:(void(^)(NSString *cityName))nameBlock;
+//代理传值
+- (void)getCityBackName:(NSString *)cityName AndCityId:(NSString *)cityid;
 @end
 
 @interface SelectViewController : UIViewController

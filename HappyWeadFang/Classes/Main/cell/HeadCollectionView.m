@@ -7,26 +7,11 @@
 //
 
 #import "HeadCollectionView.h"
-
-
-@interface HeadCollectionView ()
-@property (weak, nonatomic) IBOutlet UILabel *cityLable;
-
-@end
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @implementation HeadCollectionView
 
-- (IBAction)geoCityButton:(id)sender {
-    
-}
-//
-//- (void)awakeFromNib{
-//    
-//}
-//
 - (void)setCityDic:(NSDictionary *)cityDic{
-    self.cityLable.text = cityDic[@"cat_name"];;
+    self.cityLable.text = cityDic[@"cat_name"];
 }
-
-
 @end

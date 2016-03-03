@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface HeadCollectionView : UICollectionReusableView
+//定位后的城市
+@property (weak, nonatomic) IBOutlet UILabel *cityLable;
+//重新定位
+@property (weak, nonatomic) IBOutlet UIButton *reLocationButton;
 
 @property(nonatomic, strong) NSDictionary *cityDic;
 

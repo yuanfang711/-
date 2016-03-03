@@ -20,7 +20,9 @@
 #import "HotActivityViewController.h"
 
 
-@interface MainViewController ()<UISearchControllerDelegate>
+@interface MainViewController ()<UISearchControllerDelegate>{
+    NSString *cityID;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //全部数据
 @property(nonatomic, strong) NSMutableArray *listArray;
@@ -45,8 +47,7 @@
 @property(nonatomic, strong) NSString *cityName;
 //城市按钮
 @property(nonatomic, strong) UIButton *cityButton;
-//城市ID
-@property(nonatomic, strong) NSString *cityID;
+
 @end
 
 @implementation MainViewController
@@ -55,7 +56,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.barTintColor = kColor;
-    
+        cityID = @"1";
     //设置北京
     self.cityButton  = [UIButton buttonWithType:UIButtonTypeSystem];
     self.cityButton.frame = CGRectMake(0, 0, 60, 44);
@@ -65,18 +66,17 @@
     //调整button标题的位置：距离button上、下、左右边界的距离
     [self.cityButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 10)];
     //调整button图片所在的位置
-    [self.cityButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.cityButton.frame.size.width - 25, 0, 0)];
+    [self.cityButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.cityButton.frame.size.width - 30, 0, 0)];
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithCustomView:self.cityButton];
-//    leftBtn.tintColor = [UIColor whiteColor];
+    leftBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftBtn;
-    
     //搜索按钮
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    rightBtn.frame = CGRectMake(0, 0, 22, 22);
-    [rightBtn setBackgroundImage:[UIImage imageNamed:@"btn_search.png"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(selectWord) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBtnu = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = rightBtnu;
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+//    rightBtn.frame = CGRectMake(0, 0, 22, 22);
+//    [rightBtn setBackgroundImage:[UIImage imageNamed:@"btn_search.png"] forState:UIControlStateNormal];
+//    [rightBtn addTarget:self action:@selector(selectWord) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightBtnu = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    self.navigationItem.rightBarButtonItem = rightBtnu;
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil ]forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
@@ -85,11 +85,82 @@
     [self startTimer];
 }
 
-
 -(void)viewWillAppear:(BOOL)animated{
     [self viewDidAppear:YES];
     self.tabBarController.tabBar.hidden = NO;
+}
+//回传值代理
+- (void)getCityBackName:(NSString *)cityName AndCityId:(NSString *)cityid{
+    cityID = cityid;
+    [self getModel];
     
+    [self.cityButton setTitle:cityName forState:UIControlStateNormal];
+    NSInteger age = - 30;
+    if (cityName.length > 2) {
+        age = - 20; }
+    [self.cityButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.cityButton.frame.size.width + age, 0, 0)];
+}
+#pragma mark --------------  请求数据
+- (void)getModel{
+    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
+    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    //[NSString stringWithFormat:@"%@&cityid=%@",kMainDataList,self.cityID ]
+    NSNumber *lat = [[NSUserDefaults standardUserDefaults]valueForKey:@"lat" ];
+    NSNumber *lng = [[NSUserDefaults standardUserDefaults]valueForKey:@"lng" ];
+    [managers GET:[NSString stringWithFormat:@"%@&cityid=%@&lat=%@&lng=%@",kMainDataList,cityID,lat,lng ] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *diction = responseObject;
+        NSString *status = diction[@"status"];
+        NSInteger code = [diction[@"code"] floatValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *dic = diction[@"success"];
+            //推荐活动
+            if (self.activityArray.count > 0) {
+                [self.activityArray removeAllObjects];
+            }
+            NSArray *acArray = dic[@"acData"];
+        
+            for (NSDictionary *dis in acArray) {
+                MainModel *model = [[MainModel alloc] initGetCellDictionary:dis];
+                [self.activityArray addObject:model];
+            }
+            [self.listArray addObject:self.activityArray];
+            
+            //推荐专题
+            if (self.themeArray.count > 0) {
+                [self.themeArray removeAllObjects];
+            }
+            NSArray *rcArray = dic[@"rcData"];
+ 
+            for (NSDictionary *dis in rcArray) {
+                MainModel *model = [[MainModel alloc] initGetCellDictionary:dis];
+                [self.themeArray addObject:model];
+            }
+            [self.listArray addObject:self.themeArray];
+            //刷新
+            [self.tableView reloadData];
+            
+            //广告
+            if (self.idArray.count > 0) {
+                [self.idArray removeAllObjects];
+            }
+            NSArray *adArray = dic[@"adData"];
+
+            for (NSDictionary *dis in adArray) {
+                NSDictionary *dic = @{@"url":dis[@"url"],@"type":dis[@"type"],@"id":dis[@"id"]};
+                [self.idArray addObject:dic];
+            }
+            //            [self startTimer];
+            //拿到数据后，重新刷新
+            [self configTableViewHeadView];
+            NSString *cityName = dic[@"cityname"];
+            //已请求回来的城市作为导航栏的左标题
+            self.navigationItem.leftBarButtonItem.title = cityName;
+        }else{
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        FFFLog(@"%@",error);
+    }];
 }
 #pragma mark ****----- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -104,9 +175,10 @@
     
     MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     NSMutableArray *group = self.listArray[indexPath.section];
-    
-    cell.model = group[indexPath.row];
-
+    //防止数组越界
+    if (indexPath.row < group.count) {
+            cell.model = group[indexPath.row];
+    }
     return cell;
 }
 #pragma mark ***-------UITableViewDelegate
@@ -170,10 +242,10 @@
 
 
 #pragma mark ----------------  搜索关键字
-- (void)selectWord{
-    SearchViewController *searchVC =[[SearchViewController alloc ]init];
-    [self.navigationController pushViewController:searchVC animated:YES];
-}
+//- (void)selectWord{
+//    SearchViewController *searchVC =[[SearchViewController alloc ]init];
+//    [self.navigationController pushViewController:searchVC animated:YES];
+//}
 
 #pragma mark  ----------------- 自定义tableview头
 - (void)configTableViewHeadView{
@@ -315,60 +387,6 @@
     [self startTimer];
 }
 
-
-#pragma mark --------------  请求数据
-- (void)getModel{  
-    NSString *url = kMainDataList;
-    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
-    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [managers GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        FFFLog(@"%@",responseObject);
-        
-        NSDictionary *diction = responseObject;
-        NSString *status = diction[@"status"];
-        NSInteger code = [diction[@"code"] floatValue];
-        if ([status isEqualToString:@"success"] && code == 0) {
-            NSDictionary *dic = diction[@"success"];
-            //推荐活动
-            NSArray *acArray = dic[@"acData"];
-            
-            for (NSDictionary *dis in acArray) {
-                MainModel *model = [[MainModel alloc] initGetCellDictionary:dis];
-                [self.activityArray addObject:model];
-            }
-            [self.listArray addObject:self.activityArray];
-            
-            //推荐专题
-            NSArray *rcArray = dic[@"rcData"];
-            for (NSDictionary *dis in rcArray) {
-                MainModel *model = [[MainModel alloc] initGetCellDictionary:dis];
-                
-                [self.themeArray addObject:model];
-            }
-            [self.listArray addObject:self.themeArray];
-            //刷新
-            [self.tableView reloadData];
-            
-            //广告
-            NSArray *adArray = dic[@"adData"];
-            for (NSDictionary *dis in adArray) {
-                NSDictionary *dic = @{@"url":dis[@"url"],@"type":dis[@"type"],@"id":dis[@"id"]};
-                [self.idArray addObject:dic];
-            }
-//            [self startTimer];
-            //拿到数据后，重新刷新
-            [self configTableViewHeadView];
-            NSString *cityName = dic[@"cityname"];
-            //已请求回来的城市作为导航栏的左标题
-            self.navigationItem.leftBarButtonItem.title = cityName;
-        }else{
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        FFFLog(@"%@",error);
-    }];
-}
 #pragma mark ------------------- 懒加载
 - (NSMutableArray *)listArray{
     if (_listArray == nil) {
@@ -464,13 +482,6 @@
     self.scrollV.contentOffset = CGPointMake(num * pagef, 0);
     
 }
-
-//回传值代理
-- (void)getCityBack:(NSString *)name WithCityID:(NSString *)cityID{
-    self.cityID = cityID;
-    [self.cityButton setTitle:name forState:UIControlStateNormal];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -485,5 +496,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end

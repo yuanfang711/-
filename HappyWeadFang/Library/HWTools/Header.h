@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, ClassifyListType) {
-    ClassifyListTypeShowRepertorie = 1, //演出剧目
+    ClassifyListTypeShowRepertorie = 1, //演出剧目 
     ClassifyListTypeTourisePlace,       //景点场馆
     ClassifyListTypeStudyPUZ,           //学习益智
     ClassifyListTypeFamilyTravel,       //亲子旅游
@@ -22,13 +22,15 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 //将所有的接口都放到header中定义
 //主页接口
-#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=141&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1"
+#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&limit=30&page=1"
 
 //活动详情接口
-#define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&lat=34.61356779156581&lng=112.4141403843618"
+//#define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&lat=34.61356779156581&lng=112.4141403843618"
+#define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore"
 
 //活动专题接口
-#define kActivityTheme @"http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&cityid=1&lat=34.61349052974207&limit=30&lng=112.4139739846577&page=1"
+//&cityid=1&lat=34.61349052974207&lng=112.4139739846577
+#define kActivityTheme @"http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&page=1&limit=30"
 
 //竞选活动接口
 #define kGoodActivity @"http://e.kumi.cn/app/articlelist.php?_s_=a9d09aa8b7692ebee5c8a123deacf775&_t_=1452236979&channelid=appstore&cityid=1&lat=34.61351314785497&limit=30&lng=112.4140755658942&page=1&type=1"
@@ -42,7 +44,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 #define kDiscover @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
 
 //发现接口
-#define kCity @"http://e.kumi.cn/app/citylist.php?_s_=7afdcf70cf8f62146f2387946b4bf4e0&_t_=1456798700&channelid=appstore&cityid=1316&lat=34.61346589895142&lng=112.4140820306375"
+#define kCity @"http://e.kumi.cn/app/citylist.php?_s_=7afdcf70cf8f62146f2387946b4bf4e0&_t_=1456798700&channelid=appstore&cityid=1&lat=34.61346589895142&lng=112.4140820306375"
 
 
 //新浪微博分享

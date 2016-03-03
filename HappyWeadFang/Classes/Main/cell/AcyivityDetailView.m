@@ -137,9 +137,6 @@
     }
     self.mainScrollView.contentSize = CGSizeMake(ScreenWidth, _PreviousImageHight + 20);
 }
-
-
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

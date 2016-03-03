@@ -18,8 +18,6 @@
 @interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate,CLLocationManagerDelegate>{
     //全局变量 2  创建所需要的实例对象
     CLLocationManager *_locationManager;
-    
-    
     //一、创建地理编码对象
     CLGeocoder *_geocoder;
 }
@@ -28,19 +26,15 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
     //3 初始化定位的对象
     _locationManager = [[CLLocationManager alloc] init];
-    
     //4 判断是否打开定位
     if (![CLLocationManager locationServicesEnabled]) {
-        FFFLog(@"用户位置服务不用！");
+        FFFLog(@"用户位置服务不可用！");
     }
-    
     //5 判断是否授权:没有则请求用户授权
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
         //当用户在使用时，打开
@@ -57,25 +51,16 @@
         [_locationManager startUpdatingLocation];
     }
     
-    
-    
     //二、初始化地理编码对象
     _geocoder = [[CLGeocoder alloc] init];
-    
-
-    
     
     //微博
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:KAppkey];
-    
     //微信
     [WXApi registerApp:KWeiXinAppSecret];
-    
     //BMOB
     [Bmob registerWithAppKey:KBmobAppkey];
-    
-    
     
     //UITabBar
     self.tabbarC = [[UITabBarController alloc] init];
@@ -96,9 +81,7 @@
     disNAV.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     //设置选中图片按照图片的原始图片的状态显示
     UIImage *selectedImage2 = [UIImage imageNamed:@"ft_found_selected_ic.png"];
- 
     mainNav.tabBarItem.selectedImage = [selectedImage2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
     
 //我的
     UIStoryboard *me = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
@@ -117,37 +100,38 @@
     //添加为根视图
     self.window.rootViewController = _tabbarC;
     
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
-  
 }
 #pragma mark ------------ 定位协议代理
-/*
- 方法：
+/* 方法：
  manager      ：当前使用的定位对象
- CLLocation   ：返回定位的数据，是一个数组对象，里边是CLLocation类型
- */
+ CLLocation   ：返回定位的数据，是一个数组对象，里边是CLLocation类型 */
 //6
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-//    FFFLog(@"%@",locations);
     //7  从数组中取出一个定位信息
     CLLocation *location = [locations lastObject];
     //从location中取出坐标 CLLocationCoordinate2D 坐标系，里边包含经度和纬度
     CLLocationCoordinate2D coordinate = location.coordinate;
-    FFFLog(@"维度：%.6f  经度：%.6f 海拔：%.2f  航向：%.2f  行走速度：%.2f ",coordinate.latitude,coordinate.longitude,location.altitude,location.course,    location.speed);
+//    FFFLog(@"维度：%.6f  经度：%.6f 海拔：%.2f  航向：%.2f  行走速度：%.2f ",coordinate.latitude,coordinate.longitude,location.altitude,location.course,    location.speed);
     
+    //用持久化存储经纬度
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:[NSNumber numberWithDouble:coordinate.latitude] forKey:@"lat"];
+    [defaults setValue:[NSNumber numberWithDouble:coordinate.longitude] forKey:@"lng"];
+
     //三、在获取到用户位置（经纬度）后，通过逆地理编码将经纬度转化为实际的地名、街道等信息
     [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         CLPlacemark *placemark = [placemarks firstObject];
-        NSString *city = placemark.addressDictionary[@"City"];
-        FFFLog(@"%@",placemark.addressDictionary);
+        //
+        [[NSUserDefaults standardUserDefaults] setValue:placemark.addressDictionary[@"City"] forKey:@"city"];
+        //保存
+        [defaults synchronize];
     }];
     //如果不需要使用定位服务的时候，请及时关闭定位
     [_locationManager stopUpdatingLocation];
 }
-
 #pragma mark ------------ 微博
 -(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -156,23 +140,16 @@
 -(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
     [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
-    
 }
-
 #pragma mark ---------- Share Weibo
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
-
-
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [WeiboSDK handleOpenURL:url delegate:self];
     
 }
-
-
 #pragma mark ------------ 请求openAPI
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
